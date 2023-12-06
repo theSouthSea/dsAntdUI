@@ -1,37 +1,75 @@
 import { Meta, StoryObj } from "@storybook/react";
-import {usePreviousPersistentWithMatcher} from './usePreview'
+import {useDebounce} from './useDebounce'
 import { useState } from "react";
+import { debounce } from "lodash-es";
+import { sleep } from "@/utils";
 interface DemoProps {
-    initCount: number
+    hasUseDebounce: boolean
 }
-const Demo = ({initCount}:DemoProps) => {
-    const [count, setCount] = useState(initCount);
-    const prevCount = usePreviousPersistentWithMatcher(count,(a,b)=>a===b)
-    const handleAddClick = () => {
-        setCount(count + 1)
+const Demo = ({hasUseDebounce}:DemoProps) => {
+    const [keyword,setKeyWord] = useState('');
+    const [data, setData] = useState<any[]>([]);
+    const handleRequestClick = async () => {
+        console.log('请求成功')
+        await sleep(1000);
+        setData([
+            {
+                title: 'react '+keyword,
+                description: 'react description',
+                url: '/react.html'
+            },
+            {
+                title: 'vue '+keyword,
+                description: 'vue description',
+                url: '/vue.html'
+            },
+            {
+                title: 'angular '+keyword,
+                description: 'angular description',
+                url: '/angular.html'
+            }
+        ])
     }
-    const handleMinusClick = () => {
-        setCount(count - 1)
+    const debounceRequest = useDebounce(handleRequestClick, 500)
+    const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if(!hasUseDebounce){
+            const debounceFn = debounce(handleRequestClick,500)
+            debounceFn()
+        }else{
+            debounceRequest()
+        }
+        setKeyWord(e.target.value)
     }
+    // const handleKeywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     setKeyWord(e.target.value)
+    //     handleRequestClick()
+    // }
+    // if(!hasUseDebounce){
+    //     handleValueChange = debounce(handleKeywordChange,500)
+    // }
     return (
         <>
-        <div>前一个值: {prevCount}</div>
-        <div>当前值:{count}</div>
-        <button onClick={handleAddClick}>+</button>
-        <button onClick={handleMinusClick}>-</button>
+        <p>搜索-使用useDebounce防抖</p>
+        <input type="text" value={keyword} onChange={handleValueChange} />
+        <p>搜索结果</p>
+        <ol>
+        {
+            data.map((item) => (<li key={item.url}>{item.title}</li>))
+        }
+        </ol>
         </>
     )
 
 }
 const meta: Meta = {
-    title: 'hooks/usePreview',
+    title: 'hooks/useDebounce',
     component: Demo,
     argTypes: {
-        initCount: {
+        hasUseDebounce: {
             control: {
-                type: 'number',
+                type: 'boolean',
             },
-            defaultValue: 0,
+            defaultValue: true,
         },
         
     },
@@ -48,8 +86,13 @@ export default meta;
 // export const Default = Template.bind({});
 // Default.args = {};
 type Story = StoryObj<typeof meta>;
-export const InitCount0: Story = {
+export const HasUseDebounce: Story = {
     args: {
-        initCount: 0,
+        hasUseDebounce: true,
+    }
+}
+export const NoUseDebounce: Story = {
+    args: {
+        hasUseDebounce: false,
     }
 }
