@@ -1,0 +1,1 @@
+import{r as n}from"./index-4g5l5LRQ.js";function a(r){const t="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";let e="";for(let o=0;o<r;o++)e+=t[Math.floor(Math.random()*t.length)];return e}function u(r){const[t]=n.useState(()=>a(r));return t}export{u};
