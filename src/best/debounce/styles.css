@@ -1,0 +1,25 @@
+.App {
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  padding: 10px 20px;
+  background: #f4f4f6;
+}
+
+input {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 20px 0;
+  border: 1px solid #646fa0;
+  border-radius: 4px;
+}
