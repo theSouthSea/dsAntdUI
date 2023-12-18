@@ -20,3 +20,11 @@ export function generateRandomId(length: number): string {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
  }
+ /** 浅对比对象 */
+export function Shallow<T>(obj1: T, obj2: T) {
+  if (obj1 === obj2) return true;
+  for (const key in obj1) {
+    if (obj1[key] !== obj2[key]) return false;
+  }
+  return true;
+}
