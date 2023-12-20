@@ -1,0 +1,5 @@
+import{j as e}from"./jsx-runtime-vNq4Oc-g.js";import{u as l}from"./useRandomId-_kw5t3NG.js";import{r as n}from"./index-4g5l5LRQ.js";import"./index-I0Zh-h9s.js";import"./_commonjsHelpers-4gQjN7DL.js";const p=({children:r})=>{const[o,i]=n.useState(1),[,m]=n.useState(1);return e.jsxs("div",{children:[r,e.jsx("hr",{}),e.jsxs("div",{children:[e.jsx("button",{onClick:()=>m(s=>s+1),children:"Rerender Hook"}),e.jsx("button",{onClick:()=>i(s=>s+1),children:"Remount Hook"})]})]},o)},u=({length:r})=>{const o=l(r);return e.jsx("pre",{children:e.jsxs("code",{children:["id: ",o]})})},h=r=>e.jsx(p,{children:e.jsx(u,{...r})}),f={title:"hooks/useRandomId",component:h,argTypes:{length:{control:{type:"number"},defaultValue:10}},parameters:{controls:{expanded:!0}}},t={args:{length:8}};var a,c,d;t.parameters={...t.parameters,docs:{...(a=t.parameters)==null?void 0:a.docs,source:{originalSource:`{
+  args: {
+    length: 8
+  }
+}`,...(d=(c=t.parameters)==null?void 0:c.docs)==null?void 0:d.source}}};const y=["Length8"];export{t as Length8,y as __namedExportsOrder,f as default};

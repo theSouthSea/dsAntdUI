@@ -1,0 +1,5 @@
+import{j as n}from"./jsx-runtime-vNq4Oc-g.js";import{r as a}from"./index-4g5l5LRQ.js";import"./_commonjsHelpers-4gQjN7DL.js";const x=(e,t)=>{const r=a.useRef({value:e,prev:null}),o=r.current.value;return(t?!t(o,e):e!==o)&&(r.current={value:e,prev:o}),r.current.prev},C=({initCount:e})=>{const[t,r]=a.useState(e),o=x(t,(l,m)=>l===m),d=()=>{r(t+1)},p=()=>{r(t-1)};return n.jsxs(n.Fragment,{children:[n.jsxs("div",{children:["前一个值: ",o]}),n.jsxs("div",{children:["当前值:",t]}),n.jsx("button",{onClick:d,children:"+"}),n.jsx("button",{onClick:p,children:"-"})]})},v={title:"hooks/usePreview",component:C,argTypes:{initCount:{control:{type:"number"},defaultValue:0}},parameters:{controls:{expanded:!0}}},s={args:{initCount:0}};var c,i,u;s.parameters={...s.parameters,docs:{...(c=s.parameters)==null?void 0:c.docs,source:{originalSource:`{
+  args: {
+    initCount: 0
+  }
+}`,...(u=(i=s.parameters)==null?void 0:i.docs)==null?void 0:u.source}}};const g=["InitCount0"];export{s as InitCount0,g as __namedExportsOrder,v as default};
