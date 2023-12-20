@@ -1,0 +1,91 @@
+.moduleFlex {
+  display: flex;
+  height: 702px;
+  padding: 10px;
+  border: 1px solid #c3c3c3;
+  justify-content: space-between;
+
+  .optionFlex {
+    display: flex;
+    width: 445px;
+    height: 680px;
+    overflow: auto;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    li {
+      height: 160px;
+      padding: 5px;
+      margin: 5px;
+      list-style-type: none;
+      border: 2px solid #e6e7e9;
+
+      .itemTitle {
+        margin-left: 5px;
+        line-height: 40px;
+        color: #a7a3a3;
+      }
+    }
+
+    li:hover {
+      cursor: pointer;
+      border: 2px solid #298ff4;
+      box-shadow: 0 0 2px 3px #f1f3f3;
+
+      .itemTitle {
+        color: #000;
+      }
+    }
+  }
+
+  .line {
+    width: 2px;
+    margin: 0 15px;
+    background: #d7d6d6;
+  }
+
+  .imgTable {
+    width: 350px;
+    padding: 5px 15px 0;
+
+    .tableTitle {
+      padding: 8px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      background: #f4f7f5;
+      border-bottom: 1px solid #bfb9b9;
+    }
+  }
+}
+
+.el-icon-view {
+  margin-left: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.image {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.imageInner {
+  vertical-align: top;
+  object-fit: cover;
+}
+
+.selctedModuleCon {
+  width: 350px;
+}
+
+.tableTitle {
+  padding: 8px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  background: #f4f7f5;
+  border-bottom: 1px solid #bfb9b9;
+}

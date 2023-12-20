@@ -1,5 +1,5 @@
-import type { Preview } from "@storybook/react";
-
+import type { Preview } from "@storybook/react"
+import "./global.css"
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -10,6 +10,6 @@ const preview: Preview = {
       },
     },
   },
-};
+}
 
-export default preview;
+export default preview

@@ -24,6 +24,9 @@
       "@base": [
         "src/components/base"
       ],
+      "@business/*": [
+        "src/components/business/*"
+      ],
       "@ui": [
         "src/components/base/exportLib"
       ],
