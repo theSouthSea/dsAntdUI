@@ -7,8 +7,29 @@ interface ModalProps {
   content: ReactNode
   btn: ReactNode
   onConfirm: (e: MouseEvent) => void
-  onCancel: (e: MouseEvent) => void
+  onCancel?: (e: MouseEvent) => void
 }
+const ModalContainer = styled("div")`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+`
+const ModalWrapper = styled("div")`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+`
 const ModalContent = styled("div")`
   display: flex;
   justify-content: center;
@@ -20,7 +41,12 @@ const ModalFooter = styled("div")`
   padding: 20px 0;
   row-gap: 10px;
 `
-const Modal = forwardRef(({ content, btn, onCancel }: ModalProps, ref: any) => {
+
+export interface ModalRef {
+  onOpenModal: () => void
+  onCloseModal: () => void
+}
+const Modal = forwardRef<ModalRef, ModalProps>(({ content, btn, onConfirm }, ref) => {
   const [open, setOpen] = useState(false)
   useImperativeHandle(ref, () => ({
     onOpenModal: () => {
@@ -30,18 +56,25 @@ const Modal = forwardRef(({ content, btn, onCancel }: ModalProps, ref: any) => {
       setOpen(false)
     },
   }))
-  const handleCancel = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleCancel = () => {
     setOpen(false)
-    onCancel(e)
   }
   const ModalEle = (
-    <div>
-      <ModalContent>{content}</ModalContent>
-      <ModalFooter>
-        {btn}
-        <Button onClick={handleCancel}>取消</Button>
-      </ModalFooter>
-    </div>
+    <ModalContainer>
+      <ModalWrapper>
+        <ModalContent>{content}</ModalContent>
+        <ModalFooter>
+          {btn ? (
+            btn
+          ) : (
+            <Button type="primary" onClick={onConfirm}>
+              确定
+            </Button>
+          )}
+          <Button onClick={handleCancel}>取消</Button>
+        </ModalFooter>
+      </ModalWrapper>
+    </ModalContainer>
   )
   return open ? createPortal(ModalEle, document.body) : null
 })
