@@ -1,5 +1,6 @@
-import { useFormState } from "@/pages/best/FormDataProvider"
-import React, { ChangeEvent } from "react"
+import { ChangeEvent } from "react"
+
+import { useFormAPI, useFormData } from "@/pages/best/FormDataProvider"
 
 // export const NameFormComponent = ({
 //   onChange,
@@ -23,7 +24,8 @@ import React, { ChangeEvent } from "react"
 // };
 export const NameFormComponent = () => {
   // accessing the data directly right where it's needed!
-  const { onNameChange, state } = useFormState()
+  const { name } = useFormData()
+  const { onNameChange } = useFormAPI()
 
   const onValueChange = (e: ChangeEvent<HTMLInputElement>) => {
     onNameChange(e.target.value)
@@ -32,7 +34,7 @@ export const NameFormComponent = () => {
   return (
     <div>
       Type your name here: <br />
-      <input onChange={onValueChange} value={state.name} />
+      <input onChange={onValueChange} value={name} />
     </div>
   )
 }

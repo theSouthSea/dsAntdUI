@@ -1,6 +1,6 @@
-import React from "react"
+import { useFormAPI } from "@/pages/best/FormDataProvider"
+
 import { Section } from "./section"
-import { useFormState } from "@/pages/best/FormDataProvider"
 
 // export const ActionsSection = ({ onSave }: { onSave: () => void }) => {
 //   console.info("ActionsSection render");
@@ -11,7 +11,7 @@ import { useFormState } from "@/pages/best/FormDataProvider"
 //   );
 // };
 export const ActionsSection = () => {
-  const { onSave } = useFormState()
+  const { onSave } = useFormAPI()
   console.info("ActionsSection render")
   return (
     <Section title="Actions">

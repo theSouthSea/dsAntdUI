@@ -1,6 +1,5 @@
-import React from "react"
-import { Section } from "./section"
 import { DiscountFormComponent } from "./discount-form-component"
+import { Section } from "./section"
 
 // export const ValueCalculationsSection = ({
 //   onDiscountChange

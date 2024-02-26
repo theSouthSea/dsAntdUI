@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import React from "react"
 import { DraggingBar } from "@/libs/best/dragging-bar-library"
-import { useFormState } from "@/pages/best/FormDataProvider"
+import { useFormAPI } from "@/pages/best/FormDataProvider"
 
 // export const DiscountFormComponent = ({
 //   onDiscountChange,
@@ -18,7 +17,7 @@ import { useFormState } from "@/pages/best/FormDataProvider"
 //   )
 // }
 export const DiscountFormComponent = () => {
-  const { onDiscountChange } = useFormState()
+  const { onDiscountChange } = useFormAPI()
   console.info("DiscountFormComponent render")
   return (
     <div>
