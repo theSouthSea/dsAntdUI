@@ -1,10 +1,15 @@
-// 这个主要是路由表组件的写法
-import { Suspense, lazy } from "react"
-import { useRoutes, RouteObject } from "react-router-dom"
+import React, { Suspense } from "react"
+import { createBrowserRouter } from "react-router-dom"
 import Layout from "@/layout/Layout"
 import App from "@/App"
-
-const RouteTable: SyncRoute.Routes[] = [
+import loadable from "@loadable/component"
+// import loadable from "react-loadable" // 过时了6年前更新的
+const LazyBestDemo = React.lazy(() => import("@/pages/best/BestDemo"))
+const LodableSlogan = loadable(() => import("@/pages/Slogan"))
+const LodableAbout = loadable(() => import("@/pages/About"), {
+  fallback: <div>懒加载路由ing...</div>,
+})
+const routes = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
@@ -15,39 +20,61 @@ const RouteTable: SyncRoute.Routes[] = [
       },
       {
         path: "home",
-        component: lazy(() => import("@/pages/Slogan")),
+        // component: lazy(() => import("@/pages/Slogan")),
+        element: <LodableSlogan />,
         children: [
           {
             path: "about",
-            component: lazy(() => import("@/pages/About")),
+            // component: lazy(() => import("@/pages/About")),
+            element: <LodableAbout />,
+            component: loadable(() => import("@/pages/About"), {
+              fallback: <div>懒加载路由ing...</div>,
+            }),
           },
         ],
       },
+      {
+        path: "best/BestDemo",
+        // element: lazy(() => import("@/pages/base/modal/ModalDemo")),
+        element: (
+          <Suspense fallback={<div>loading</div>}>
+            <LazyBestDemo></LazyBestDemo>
+          </Suspense>
+        ),
+        // element: <SuspenseLazyComp LazyComp={LazyModalDemo}></SuspenseLazyComp>,
+        // lazy: lazy(() => import("@/pages/base/modal/ModalDemo")),
+      },
     ],
   },
-]
-const syncRouter = (table: SyncRoute.Routes[]): RouteObject[] => {
-  const mRouteTable: RouteObject[] = []
-  table.forEach((route) => {
-    const realRoute = {
-      index: route.index ? true : false,
-      path: route.path,
-      element: route.component ? (
-        <Suspense fallback={<div>路由加载ing...</div>}>
-          <route.component />
-        </Suspense>
-      ) : (
-        route.element
-      ),
-      children: route.children && syncRouter(route.children),
-    } as RouteObject
-    // if (route.index) {
-    //   route.index = true
-    //   // (realRoute as RouteObject).index = true
-    // }
-    mRouteTable.push(realRoute)
-  })
-  return mRouteTable
-}
-// 直接暴露成一个组件调用
-export default () => useRoutes(syncRouter(RouteTable))
+])
+
+// 不能这样加载
+// function LoadableComp({ path }: { path: string }) {
+//   const Comp = loadable(() => import(path), {
+//     fallback: <div>懒加载路由ing...</div>,
+//   })
+//   return <Comp />
+// }
+// class MyMain extends React.Component{
+//   render() {
+//     return (
+//       <Routes>
+//           {
+//             routes.map((item, i) => {
+//               return (
+//                 <Route key={i} path={item.path} element={
+//                   <Suspense fallback={
+//                     <div>路由懒加载...</div>
+//                   }>
+//                     < item.component />
+//                   </Suspense>
+//                 } />
+//               )
+//             })
+//           }
+//         </Routes>
+//     )
+//   }
+// }
+
+export default routes

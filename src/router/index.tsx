@@ -29,6 +29,17 @@ const router = createBrowserRouter([
     // lazy: lazy(() => import("@/pages/base/modal/ModalDemo")),
   },
   {
+    path: "/best/BestDemo",
+    // element: lazy(() => import("@/pages/base/modal/ModalDemo")),
+    element: (
+      <Suspense fallback={<div>loading</div>}>
+        <LazyModalDemo></LazyModalDemo>
+      </Suspense>
+    ),
+    // element: <SuspenseLazyComp LazyComp={LazyModalDemo}></SuspenseLazyComp>,
+    // lazy: lazy(() => import("@/pages/base/modal/ModalDemo")),
+  },
+  {
     path: "*",
     Component: lazy(() => import("@/pages/404")),
   },

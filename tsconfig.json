@@ -21,19 +21,10 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@base": [
-        "src/components/base"
-      ],
-      "@business/*": [
-        "src/components/business/*"
-      ],
-      "@ui": [
-        "src/components/base/exportLib"
-      ],
-      "@/*": [
-        "src/*"
-      ],
-
+      "@base": ["src/components/base"],
+      "@business/*": ["src/components/business/*"],
+      "@ui": ["src/components/base/exportLib"],
+      "@/*": ["src/*"]
     }
   },
   "include": ["./src"],
