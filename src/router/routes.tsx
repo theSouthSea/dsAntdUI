@@ -9,6 +9,9 @@ const LodableSlogan = loadable(() => import("@/pages/Slogan"))
 const LodableAbout = loadable(() => import("@/pages/About"), {
   fallback: <div>懒加载路由ing...</div>,
 })
+const LodableRerenderBase = loadable(() => import("@/pages/best/RerenderBase"), {
+  fallback: <div>懒加载路由ing...</div>,
+})
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -27,22 +30,32 @@ const routes = createBrowserRouter([
             path: "about",
             // component: lazy(() => import("@/pages/About")),
             element: <LodableAbout />,
-            component: loadable(() => import("@/pages/About"), {
-              fallback: <div>懒加载路由ing...</div>,
-            }),
+            // component: loadable(() => import("@/pages/About"), {
+            //   fallback: <div>懒加载路由ing...</div>,
+            // }),
           },
         ],
       },
       {
-        path: "best/BestDemo",
-        // element: lazy(() => import("@/pages/base/modal/ModalDemo")),
-        element: (
-          <Suspense fallback={<div>loading</div>}>
-            <LazyBestDemo></LazyBestDemo>
-          </Suspense>
-        ),
-        // element: <SuspenseLazyComp LazyComp={LazyModalDemo}></SuspenseLazyComp>,
-        // lazy: lazy(() => import("@/pages/base/modal/ModalDemo")),
+        path: "best",
+        children: [
+          {
+            path: "BestDemo",
+            // element: lazy(() => import("@/pages/base/modal/ModalDemo")),
+            element: (
+              <Suspense fallback={<div>loading</div>}>
+                <LazyBestDemo></LazyBestDemo>
+              </Suspense>
+            ),
+            // element: <SuspenseLazyComp LazyComp={LazyModalDemo}></SuspenseLazyComp>,
+            // lazy: lazy(() => import("@/pages/base/modal/ModalDemo")),
+          },
+          {
+            path: "BestDemo",
+            // element: lazy(() => import("@/pages/base/modal/ModalDemo")),
+            element: <LodableRerenderBase></LodableRerenderBase>,
+          },
+        ],
       },
     ],
   },
@@ -54,27 +67,6 @@ const routes = createBrowserRouter([
 //     fallback: <div>懒加载路由ing...</div>,
 //   })
 //   return <Comp />
-// }
-// class MyMain extends React.Component{
-//   render() {
-//     return (
-//       <Routes>
-//           {
-//             routes.map((item, i) => {
-//               return (
-//                 <Route key={i} path={item.path} element={
-//                   <Suspense fallback={
-//                     <div>路由懒加载...</div>
-//                   }>
-//                     < item.component />
-//                   </Suspense>
-//                 } />
-//               )
-//             })
-//           }
-//         </Routes>
-//     )
-//   }
 // }
 
 export default routes
