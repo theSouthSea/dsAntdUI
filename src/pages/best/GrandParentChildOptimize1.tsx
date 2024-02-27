@@ -37,7 +37,7 @@ function reducer(state: State, action: Actions) {
       return state
   }
 }
-const GrandProvider = () => {
+export const GrandProvider = ({ children }: { children: ReactElement }) => {
   // const [count, setCount] = useState(0)
   const [state, dispatch] = useReducer(reducer, { count: 0 } as State)
   const api = useMemo(() => {
@@ -52,9 +52,9 @@ const GrandProvider = () => {
   }, [])
   return (
     <GrandAPIContext.Provider value={api}>
-      {/* {children} */}
       <GrandCountContext.Provider value={state.count}>
-        <GrandParentChild></GrandParentChild>
+        {/* <GrandParentChild></GrandParentChild> */}
+        {children}
       </GrandCountContext.Provider>
     </GrandAPIContext.Provider>
   )
@@ -118,4 +118,5 @@ const Child = () => {
     </div>
   )
 }
-export default GrandProvider
+// export default GrandProvider
+export default GrandParentChild

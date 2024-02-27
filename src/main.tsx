@@ -10,7 +10,8 @@ import ReactDOM from "react-dom/client"
 // import Router from "@/router/routesOld"
 import ProjectRouter from "@/router/Router"
 
-import GrandParentChildProvider from "./pages/best/GrandParentChildProvider"
+// import GrandParentChildProvider from "./pages/best/GrandParentChildProvider"
+import { GrandProvider as GrandParentChildProvider } from "./pages/best/GrandParentChildOptimize1"
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
