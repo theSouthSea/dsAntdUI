@@ -1,5 +1,5 @@
 import { Country, SelectCountry } from "@/libs/best/select-country-library"
-import { useFormAPI } from "@/pages/best/FormDataProvider"
+import { useFormAPI, useFormCountry } from "@/pages/best/FormDataProvider"
 // import { SelectCountry, Country } from "@libs/best/select-country-library"
 
 export type { Country }
@@ -16,7 +16,9 @@ export type { Country }
 
 export const SelectCountryFormComponent = () => {
   const { onCountryChange } = useFormAPI()
+  // const { country } = useFormData()
+  const country = useFormCountry()
   console.info("SelectCountryFormComponent render")
 
-  return <SelectCountry onChange={onCountryChange} />
+  return <SelectCountry onChange={onCountryChange} activeCountry={country} />
 }

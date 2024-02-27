@@ -1,4 +1,4 @@
-import { useFormData } from "@/pages/best/FormDataProvider"
+import { useFormData, useFormDiscount } from "@/pages/best/FormDataProvider"
 
 // export const DiscountSituation = ({ discount }: { discount: number }) => {
 //   console.info("Discount situation render");
@@ -15,7 +15,8 @@ import { useFormData } from "@/pages/best/FormDataProvider"
 
 export const DiscountSituation = () => {
   // const { state } = useFormState()
-  const { discount } = useFormData()
+  // const { discount } = useFormData()
+  const discount = useFormDiscount()
   console.info("Discount situation render")
   const discountPercent = Math.round((discount / 300) * 100)
 

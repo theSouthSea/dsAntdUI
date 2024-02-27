@@ -60,10 +60,19 @@ type API = {
   onSave: () => void
 }
 
-const FormDataContext = createContext<State>({} as State)
+// const FormDataContext = createContext<State>({} as State)
 const FormAPIContext = createContext<API>({} as API)
 export const useFormAPI = () => useContext(FormAPIContext)
-export const useFormData = () => useContext(FormDataContext)
+// export const useFormData = () => useContext(FormDataContext)
+
+/* 优化三-继续细分状态 */
+const FormNameContext = createContext<State["name"]>({} as State["name"])
+const FormCountryContext = createContext<State["country"]>({} as State["country"])
+const FormDiscountContext = createContext<State["discount"]>({} as State["discount"])
+
+export const useFormName = () => useContext(FormNameContext)
+export const useFormCountry = () => useContext(FormCountryContext)
+export const useFormDiscount = () => useContext(FormDiscountContext)
 type Actions =
   | { type: "updateName"; name: string }
   | { type: "updateCountry"; country: Country }
@@ -110,8 +119,17 @@ export const FormDataProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [])
   return (
+    // <FormAPIContext.Provider value={api}>
+    //   <FormDataContext.Provider value={state}>{children}</FormDataContext.Provider>
+    // </FormAPIContext.Provider>
     <FormAPIContext.Provider value={api}>
-      <FormDataContext.Provider value={state}>{children}</FormDataContext.Provider>
+      <FormNameContext.Provider value={state.name}>
+        <FormCountryContext.Provider value={state.country}>
+          <FormDiscountContext.Provider value={state.discount}>
+            {children}
+          </FormDiscountContext.Provider>
+        </FormCountryContext.Provider>
+      </FormNameContext.Provider>
     </FormAPIContext.Provider>
   )
 }

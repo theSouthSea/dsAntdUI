@@ -1,11 +1,15 @@
-import { useState } from "react"
-import reactLogo from "./assets/react.svg"
-import viteLogo from "/vite.svg"
 // import "./App.css"
 import "./css/demo.css"
+
+import { useState } from "react"
+
+import viteLogo from "/vite.svg"
 import alert from "@/components/base/Alert/Alert"
 
+import reactLogo from "./assets/react.svg"
+
 function App() {
+  console.log("App组件")
   const [count, setCount] = useState(0)
   const handleAlert = () => {
     alert("title", "hello world")

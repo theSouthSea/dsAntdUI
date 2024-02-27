@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react"
 
-import { useFormAPI, useFormData } from "@/pages/best/FormDataProvider"
+import { useFormAPI, useFormName } from "@/pages/best/FormDataProvider"
 
 // export const NameFormComponent = ({
 //   onChange,
@@ -23,8 +23,10 @@ import { useFormAPI, useFormData } from "@/pages/best/FormDataProvider"
 //   );
 // };
 export const NameFormComponent = () => {
+  console.info("NameFormComponent render")
   // accessing the data directly right where it's needed!
-  const { name } = useFormData()
+  // const { name } = useFormData()
+  const name = useFormName()
   const { onNameChange } = useFormAPI()
 
   const onValueChange = (e: ChangeEvent<HTMLInputElement>) => {

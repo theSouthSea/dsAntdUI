@@ -1,8 +1,10 @@
 import "./styles.css"
-import { Country } from "@/libs/best/select-country-library"
+
+import { ActionsSection } from "@/components/demo/best/step1/actions-section"
 import { PersonalInfoSection } from "@/components/demo/best/step1/personal-info-section"
 import { ValueCalculationsSection } from "@/components/demo/best/step1/value-calculation-section"
-import { ActionsSection } from "@/components/demo/best/step1/actions-section"
+import { Country } from "@/libs/best/select-country-library"
+
 import { FormDataProvider } from "./FormDataProvider"
 
 type State = {
@@ -15,7 +17,7 @@ const defaultState = {}
 
 const Form = () => {
   // const [state, setState] = useState<State>(defaultState as State)
-  // console.info("Form render")
+  console.info("Form render")
 
   // const onSave = () => {
   //   // send the request to the backend here
