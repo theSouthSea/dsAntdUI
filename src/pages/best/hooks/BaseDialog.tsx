@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react"
+import React, { RefObject } from "react"
 
 type ModalProps = {
   isOpen: boolean
@@ -29,11 +30,24 @@ const modalBlanketCss = css`
   z-index: 900;
   background: rgba(0, 0, 0, 0.1);
 `
-export const ModalBase = ({ isOpen, onClosed }: ModalProps) => {
-  return isOpen ? (
-    <>
-      <div css={modalBlanketCss} onClick={onClosed} />
-      <div css={modalBodyCss}>Modal dialog content</div>
-    </>
-  ) : null
-}
+// export const ModalBase = ({ isOpen, onClosed }: ModalProps) => {
+//   return isOpen ? (
+//     <>
+//       <div css={modalBlanketCss} onClick={onClosed} />
+//       <div css={modalBodyCss}>Modal dialog content</div>
+//     </>
+//   ) : null
+// }
+/* 添加获取模态框滚动位置的功能 */
+export const ModalBase = React.forwardRef(
+  ({ isOpen, onClosed }: ModalProps, ref: RefObject<any>) => {
+    return isOpen ? (
+      <>
+        <div css={modalBlanketCss} onClick={onClosed} />
+        <div css={modalBodyCss} ref={ref}>
+          Modal dialog content
+        </div>
+      </>
+    ) : null
+  }
+)
