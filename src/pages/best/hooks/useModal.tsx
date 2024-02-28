@@ -1,6 +1,7 @@
 import { RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react"
 
-import { ModalBase } from "./BaseDialog"
+// import { ModalBase } from "./BaseDialog"
+import ModalBaseWithAnalytics from "./ModalBaseWithAnalytics"
 
 // export const useModal = () => {
 //   const [isOpen, setIsOpen] = useState(false)
@@ -73,7 +74,7 @@ import { ModalBase } from "./BaseDialog"
 //   );
 // };
 /* 抽取出useScroll也无效 */
-const useScroll = (ref: RefObject) => {
+export const useScroll = (ref: RefObject<any>) => {
   const [scroll, setScroll] = useState(0)
 
   useEffect(() => {
@@ -95,8 +96,8 @@ const useScroll = (ref: RefObject) => {
 
 export const useModal = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const ref = useRef<HTMLElement>(null)
-  const scroll = useScroll(ref)
+  // const ref = useRef<HTMLElement>(null)
+  // const scroll = useScroll(ref)
 
   const open = useCallback(() => {
     setIsOpen(true)
@@ -106,8 +107,17 @@ export const useModal = () => {
     setIsOpen(false)
   }, [])
 
+  // const Dialog = useMemo(() => {
+  //   return () => <ModalBase onClosed={close} isOpen={isOpen} ref={ref} />
+  // }, [isOpen, close])
   const Dialog = useMemo(() => {
-    return () => <ModalBase onClosed={close} isOpen={isOpen} ref={ref} />
+    return () => (
+      <ModalBaseWithAnalytics
+        onClosed={close}
+        isOpen={isOpen}
+        // ref={ref}
+      />
+    )
   }, [isOpen, close])
 
   return useMemo(
