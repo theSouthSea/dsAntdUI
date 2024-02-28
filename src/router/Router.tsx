@@ -24,6 +24,11 @@ const NoPropsChild = lazy(() => import("@/pages/rerender/NoPropsChild"))
 const NoPropsChildFix = lazy(() => import("@/pages/rerender/NoPropsChildFix"))
 const ListPage = lazy(() => import("@/pages/rerender/ListPage"))
 const HooksBaseDemo = lazy(() => import("@/pages/best/hooks/BaseDemo"))
+const IncludeClosure = lazy(() => import("@/pages/best/closure/IncludeClosure"))
+const BaseClosure = lazy(() => import("@/pages/best/closure/BaseClosure"))
+const RefClosure = lazy(() => import("@/pages/best/closure/RefClosure"))
+const FixClosure = lazy(() => import("@/pages/best/closure/FixClosure"))
+const FixClosure1 = lazy(() => import("@/pages/best/closure/FixClosure1"))
 
 export default function ProjectRouter() {
   return (
@@ -74,6 +79,14 @@ export default function ProjectRouter() {
             <Route path="hooks/*">
               <Route index element={<HooksBaseDemo />} />
               <Route path="basedemo" element={<HooksBaseDemo />} />
+            </Route>
+            <Route path="closure/*">
+              <Route index element={<IncludeClosure />} />
+              <Route path="includeclose" element={<IncludeClosure />} />
+              <Route path="baseclosure" element={<BaseClosure />} />
+              <Route path="refclosure" element={<RefClosure />} />
+              <Route path="fixclosure" element={<FixClosure />} />
+              <Route path="fixclosure1" element={<FixClosure1 />} />
             </Route>
           </Route>
         </Routes>
