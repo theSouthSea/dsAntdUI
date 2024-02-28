@@ -8,8 +8,11 @@ const RerenderBase = lazy(() => import("@/pages/best/RerenderBase"))
 const RerenderBase1 = lazy(() => import("@/pages/best/RerenderBase1"))
 const GrandParentChild = lazy(() => import("@/pages/best/GrandParentChild"))
 const GrandParentChildOptimize = lazy(() => import("@/pages/best/GrandParentChildOptimize"))
+const GrandParentChildOptimizeFix = lazy(() => import("@/pages/best/GrandParentChildOptimizeFix"))
+const GrandParentChildOptimizeFix1 = lazy(() => import("@/pages/best/GrandParentChildOptimizeFix1"))
 const GrandParentChildOptimize1 = lazy(() => import("@/pages/best/GrandParentChildOptimize1"))
 const GrandParentChildOptimize2 = lazy(() => import("@/pages/best/GrandParentChildOptimize2"))
+const GrandParentChildOptimize3 = lazy(() => import("@/pages/best/GrandParentChildOptimize3"))
 const BestDemo = lazy(() => import("@/pages/best/BestDemo"))
 const DebounceDemo1 = lazy(() => import("@/best/debounce/demo1"))
 const DebounceDemo2 = lazy(() => import("@/best/debounce/demo2"))
@@ -31,8 +34,14 @@ export default function ProjectRouter() {
               <Route path="rerederbase1" element={<RerenderBase1 />} />
               <Route path="grandparentchild" element={<GrandParentChild />} />
               <Route path="grandparentchildoptimize" element={<GrandParentChildOptimize />} />
+              <Route path="grandparentchildoptimizefix" element={<GrandParentChildOptimizeFix />} />
+              <Route
+                path="grandparentchildoptimizefix1"
+                element={<GrandParentChildOptimizeFix1 />}
+              />
               <Route path="grandparentchildoptimize1" element={<GrandParentChildOptimize1 />} />
               <Route path="grandparentchildoptimize2" element={<GrandParentChildOptimize2 />} />
+              <Route path="grandparentchildoptimize3" element={<GrandParentChildOptimize3 />} />
               <Route path="debounce/*">
                 <Route index element={<DebounceDemo2 />} />
                 <Route path="demo" element={<DebounceDemo />} />

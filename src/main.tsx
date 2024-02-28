@@ -15,12 +15,13 @@ import { GrandProvider as GrandParentChildProvider } from "./pages/best/GrandPar
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <GrandParentChildProvider>
-      {/* <RouterProvider router={router} /> */}
-      {/* <BrowserRouter>
+    {/* <GrandParentChildProvider>
+      <RouterProvider router={router} />
+      <BrowserRouter>
         <Router></Router>
-      </BrowserRouter> */}
+      </BrowserRouter>
       <ProjectRouter></ProjectRouter>
-    </GrandParentChildProvider>
+    </GrandParentChildProvider> */}
+    <ProjectRouter></ProjectRouter>
   </React.StrictMode>
 )
