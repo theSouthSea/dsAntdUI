@@ -1,13 +1,12 @@
-import './styles.scss'
-import { useState, useMemo, useRef, useEffect } from 'react'
-import debounce from 'lodash/debounce'
+import debounce from "lodash-es/debounce"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 const DebounceWithStateAndRef = () => {
-  const [value, setValue] = useState('initial')
+  const [value, setValue] = useState("initial")
   const ref = useRef<any>()
 
   const onChange = () => {
-    console.log('State value:', value)
+    console.log("State value:", value)
   }
 
   useEffect(() => {
@@ -46,16 +45,18 @@ export const useDebounce = (callback: () => void) => {
     }
 
     return debounce(func, 1000)
+    // 渴望是函数,ref.current可能为undefined
+    // return debounce(ref.current, 1000)
   }, [])
 
   return debouncedCallback
 }
 
 const DebounceWithUseCallbackAndState = () => {
-  const [value, setValue] = useState('initial')
+  const [value, setValue] = useState("initial")
 
   const onChange = () => {
-    console.log('State value:', value)
+    console.log("State value:", value)
   }
 
   const debouncedOnChange = useDebounce(onChange)

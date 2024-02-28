@@ -1,3 +1,8 @@
+import { useState } from "react"
+
+import { CountriesList } from "@/libs/best/select-country-library/list"
+import { SelectedCountry } from "@/libs/best/select-country-library/selected-country"
+
 import { Country } from "./step1/select-country-from-component"
 
 export const Page = ({ countries }: { countries: Country[] }) => {
@@ -7,7 +12,7 @@ export const Page = ({ countries }: { countries: Country[] }) => {
   return (
     <>
       <h1>Country settings</h1>
-      <div css={contentCss}>
+      <div>
         <CountriesList
           countries={countries}
           onCountryChanged={(c) => setSelectedCountry(c)}

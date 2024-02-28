@@ -17,6 +17,13 @@ const BestDemo = lazy(() => import("@/pages/best/BestDemo"))
 const DebounceDemo1 = lazy(() => import("@/best/debounce/demo1"))
 const DebounceDemo2 = lazy(() => import("@/best/debounce/demo2"))
 const DebounceDemo = lazy(() => import("@/best/debounce/demo"))
+const ErrorBoundaryDemo = lazy(() => import("@/best/AsyncErrorBoundary/demo"))
+const UseDebounceDemo = lazy(() => import("@/best/debounce/demo2"))
+const CloneElementBase = lazy(() => import("@/pages/cloneElement/Base"))
+const NoPropsChild = lazy(() => import("@/pages/rerender/NoPropsChild"))
+const NoPropsChildFix = lazy(() => import("@/pages/rerender/NoPropsChildFix"))
+const ListPage = lazy(() => import("@/pages/rerender/ListPage"))
+const HooksBaseDemo = lazy(() => import("@/pages/best/hooks/BaseDemo"))
 
 export default function ProjectRouter() {
   return (
@@ -49,7 +56,24 @@ export default function ProjectRouter() {
                 <Route path="demo2" element={<DebounceDemo2 />} />
               </Route>
               <Route path="bestdemo" element={<BestDemo />} />
+              <Route path="errorboundary" element={<ErrorBoundaryDemo />} />
+              <Route path="useDebounce" element={<UseDebounceDemo />} />
+              <Route path="useDebounce" element={<UseDebounceDemo />} />
               {/* </Suspense> */}
+            </Route>
+            <Route path="cloneElement/*">
+              <Route index element={<CloneElementBase />} />
+              <Route path="base" element={<CloneElementBase />} />
+            </Route>
+            <Route path="rerender/*">
+              <Route index element={<NoPropsChild />} />
+              <Route path="nopropschild" element={<NoPropsChild />} />
+              <Route path="nopropschildfix" element={<NoPropsChildFix />} />
+              <Route path="listpage" element={<ListPage />} />
+            </Route>
+            <Route path="hooks/*">
+              <Route index element={<HooksBaseDemo />} />
+              <Route path="basedemo" element={<HooksBaseDemo />} />
             </Route>
           </Route>
         </Routes>
