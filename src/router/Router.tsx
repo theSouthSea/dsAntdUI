@@ -29,6 +29,10 @@ const BaseClosure = lazy(() => import("@/pages/best/closure/BaseClosure"))
 const RefClosure = lazy(() => import("@/pages/best/closure/RefClosure"))
 const FixClosure = lazy(() => import("@/pages/best/closure/FixClosure"))
 const FixClosure1 = lazy(() => import("@/pages/best/closure/FixClosure1"))
+const BaseHoc = lazy(() => import("@/pages/best/hoc/BaseHoc"))
+const EnhanceCallback = lazy(() => import("@/pages/best/hoc/App"))
+const InterceptEvent = lazy(() => import("@/pages/best/hoc/InterceptEvent"))
+const HocContextDemo = lazy(() => import("@/pages/best/hoc/HocContextDemo"))
 
 export default function ProjectRouter() {
   return (
@@ -87,6 +91,13 @@ export default function ProjectRouter() {
               <Route path="refclosure" element={<RefClosure />} />
               <Route path="fixclosure" element={<FixClosure />} />
               <Route path="fixclosure1" element={<FixClosure1 />} />
+            </Route>
+            <Route path="hoc/*">
+              <Route index element={<BaseHoc />} />
+              <Route path="basehoc" element={<BaseHoc />} />
+              <Route path="enhancecallback" element={<EnhanceCallback />} />
+              <Route path="interceptevent" element={<InterceptEvent />} />
+              <Route path="hoccontext" element={<HocContextDemo />} />
             </Route>
           </Route>
         </Routes>
