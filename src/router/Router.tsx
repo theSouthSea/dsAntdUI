@@ -33,6 +33,45 @@ const BaseHoc = lazy(() => import("@/pages/best/hoc/BaseHoc"))
 const EnhanceCallback = lazy(() => import("@/pages/best/hoc/App"))
 const InterceptEvent = lazy(() => import("@/pages/best/hoc/InterceptEvent"))
 const HocContextDemo = lazy(() => import("@/pages/best/hoc/HocContextDemo"))
+const ConditionRender = lazy(() => import("@/pages/best/reconciliation/ConditionRender"))
+const ConditionRenderFix = lazy(() => import("@/pages/best/reconciliation/ConditionRenderFix"))
+const ConditionRenderArr = lazy(() => import("@/pages/best/reconciliation/ConditionRenderArr"))
+const ConditionRenderSameKey = lazy(
+  () => import("@/pages/best/reconciliation/ConditionRenderSameKey")
+)
+const ArrayOuterKey = lazy(() => import("@/pages/best/reconciliation/ArrayOuterKey"))
+const ArrayOrderConditionKey = lazy(
+  () => import("@/pages/best/reconciliation/ArrayOrderConditionKey")
+)
+const RenderCount = lazy(() => import("@/pages/best/reconciliation/RenderCount"))
+const ChildrenBaseDemo = lazy(() => import("@/pages/best/children/BaseDemo"))
+const BaseDemoMemoFix = lazy(() => import("@/pages/best/children/BaseDemoMemoFix"))
+const BaseDemoChildrenFix = lazy(() => import("@/pages/best/children/BaseDemoChildrenFix"))
+const MemoChildrenComp = lazy(() => import("@/pages/best/children/MemoChildrenComp"))
+const MemoRenderProps = lazy(() => import("@/pages/best/children/MemoRenderProps"))
+const ErrorStepOne = lazy(() => import("@/pages/best/error/ErrorStepOne"))
+const ErrorStepTwo = lazy(() => import("@/pages/best/error/ErrorStepTwo"))
+const ErrorStepThree = lazy(() => import("@/pages/best/error/ErrorStepThree"))
+const ErrorStepFour = lazy(() => import("@/pages/best/error/ErrorStepFour"))
+const ErrorStepFive = lazy(() => import("@/pages/best/error/ErrorStepFive"))
+const ErrorStepSix = lazy(() => import("@/pages/best/error/ErrorStepSix"))
+const ErrorStepSeven = lazy(() => import("@/pages/best/error/ErrorStepSeven"))
+const ErrorStepEight = lazy(() => import("@/pages/best/error/ErrorStepEight"))
+const PropsStepTwo = lazy(() => import("@/pages/best/props/PropsStepTwo"))
+const PropsStepThree = lazy(() => import("@/pages/best/props/PropsStepThree"))
+const PropsStepFour = lazy(() => import("@/pages/best/props/PropsStepFour"))
+const SplitCompOne = lazy(() => import("@/pages/best/splitComp/SplitCompOne"))
+const SplitCompTwo = lazy(() => import("@/pages/best/splitComp/SplitCompTwo"))
+const SplitCompThree = lazy(() => import("@/pages/best/splitComp/SplitCompThree"))
+const SplitCompFour = lazy(() => import("@/pages/best/splitComp/SplitCompFour"))
+const ArrayStepOne = lazy(() => import("@/pages/best/performance/ArrayStepOne"))
+const ArrayStepTwo = lazy(() => import("@/pages/best/performance/ArrayStepTwo"))
+const ContextStepOne = lazy(() => import("@/pages/best/performance/ContextStepOne"))
+const ContextStepTwo = lazy(() => import("@/pages/best/performance/ContextStepTwo"))
+const StateMovedDown = lazy(() => import("@/pages/best/performance/StateMovedDown"))
+const ChildrenMemoComp = lazy(() => import("@/pages/best/performance/ChildrenMemoComp"))
+const PropsMemoComp = lazy(() => import("@/pages/best/performance/PropsMemoComp"))
+const MemoChildren = lazy(() => import("@/pages/best/performance/MemoChildren"))
 
 export default function ProjectRouter() {
   return (
@@ -98,6 +137,59 @@ export default function ProjectRouter() {
               <Route path="enhancecallback" element={<EnhanceCallback />} />
               <Route path="interceptevent" element={<InterceptEvent />} />
               <Route path="hoccontext" element={<HocContextDemo />} />
+            </Route>
+            <Route path="render/*">
+              <Route index element={<ConditionRender />} />
+              <Route path="conditionrender" element={<ConditionRender />} />
+              <Route path="conditionrenderfix" element={<ConditionRenderFix />} />
+              <Route path="conditionrenderarr" element={<ConditionRenderArr />} />
+              <Route path="conditionrendersamekey" element={<ConditionRenderSameKey />} />
+              <Route path="arrayouterkey" element={<ArrayOuterKey />} />
+              <Route path="arrayorderconditionkey" element={<ArrayOrderConditionKey />} />
+              <Route path="rendercount" element={<RenderCount />} />
+            </Route>
+            <Route path="children/*">
+              <Route index element={<ChildrenBaseDemo />} />
+              <Route path="basedemo" element={<ChildrenBaseDemo />} />
+              <Route path="basedemomemofix" element={<BaseDemoMemoFix />} />
+              <Route path="basedemochildrenfix" element={<BaseDemoChildrenFix />} />
+              <Route path="memochildrencomp" element={<MemoChildrenComp />} />
+              <Route path="memorenderprops" element={<MemoRenderProps />} />
+            </Route>
+            <Route path="error/*">
+              <Route index element={<ErrorStepOne />} />
+              <Route path="stepone" element={<ErrorStepOne />} />
+              <Route path="steptwo" element={<ErrorStepTwo />} />
+              <Route path="stepthree" element={<ErrorStepThree />} />
+              <Route path="stepfour" element={<ErrorStepFour />} />
+              <Route path="stepfive" element={<ErrorStepFive />} />
+              <Route path="stepsix" element={<ErrorStepSix />} />
+              <Route path="stepseven" element={<ErrorStepSeven />} />
+              <Route path="stepeight" element={<ErrorStepEight />} />
+            </Route>
+            <Route path="props/*">
+              <Route index element={<PropsStepTwo />} />
+              <Route path="steptwo" element={<PropsStepTwo />} />
+              <Route path="stepthree" element={<PropsStepThree />} />
+              <Route path="stepfour" element={<PropsStepFour />} />
+            </Route>
+            <Route path="splitComp/*">
+              <Route index element={<SplitCompOne />} />
+              <Route path="stepone" element={<SplitCompOne />} />
+              <Route path="steptwo" element={<SplitCompTwo />} />
+              <Route path="stepthree" element={<SplitCompThree />} />
+              <Route path="stepfour" element={<SplitCompFour />} />
+            </Route>
+            <Route path="performance/*">
+              <Route index element={<ArrayStepOne />} />
+              <Route path="arraystepone" element={<ArrayStepOne />} />
+              <Route path="arraysteptwo" element={<ArrayStepTwo />} />
+              <Route path="contextstepone" element={<ContextStepOne />} />
+              <Route path="contextsteptwo" element={<ContextStepTwo />} />
+              <Route path="statemoveddown" element={<StateMovedDown />} />
+              <Route path="childrenmemocomp" element={<ChildrenMemoComp />} />
+              <Route path="propsmemocomp" element={<PropsMemoComp />} />
+              <Route path="memochildren" element={<MemoChildren />} />
             </Route>
           </Route>
         </Routes>
