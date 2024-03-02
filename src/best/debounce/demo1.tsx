@@ -1,15 +1,14 @@
-import './styles.scss'
-import { ChangeEventHandler, useState, useMemo, useCallback } from 'react'
-import debounce from 'lodash/debounce'
+import debounce from "lodash-es/debounce"
+import { ChangeEventHandler, useCallback, useMemo, useState } from "react"
 
 const sendBackendRequest = (value: string) => {
-  console.log('Changed value:', value)
+  console.log("Changed value:", value)
 }
 
 const debouncedSendRequest = debounce(sendBackendRequest, 1000)
 
 const DebounceOutside = () => {
-  const [value, setValue] = useState('initial')
+  const [value, setValue] = useState("initial")
 
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const value = e.target.value
@@ -21,10 +20,10 @@ const DebounceOutside = () => {
 }
 
 const DebounceWithUseMemo = () => {
-  const [value, setValue] = useState('initial')
+  const [value, setValue] = useState("initial")
 
   const sendBackendRequest = useCallback((value: string) => {
-    console.log('Changed value:', value)
+    console.log("Changed value:", value)
   }, [])
 
   const debouncedSendRequest = useMemo(() => {

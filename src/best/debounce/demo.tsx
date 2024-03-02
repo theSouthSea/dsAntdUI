@@ -1,11 +1,10 @@
-import './styles.css'
-import { ChangeEventHandler } from 'react'
-import debounce from 'lodash/debounce'
-import throttle from 'lodash/throttle'
+import debounce from "lodash-es/debounce"
+import throttle from "lodash-es/throttle"
+import { ChangeEventHandler } from "react"
 
 const InputWithJustOnchange = () => {
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    console.log('Changed value:', e.target.value)
+    console.log("Changed value:", e.target.value)
   }
 
   return <input onChange={onChange} />
@@ -13,7 +12,7 @@ const InputWithJustOnchange = () => {
 
 const InputWithDebouncedOnchange = () => {
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    console.log('Changed value:', e.target.value)
+    console.log("Changed value:", e.target.value)
   }
 
   const debouncedOnChange = debounce(onChange, 1000)
@@ -23,7 +22,7 @@ const InputWithDebouncedOnchange = () => {
 
 const InputWithThrottledOnchange = () => {
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    console.log('Changed value:', e.target.value)
+    console.log("Changed value:", e.target.value)
   }
 
   const throttledOnChange = throttle(onChange, 1000)
