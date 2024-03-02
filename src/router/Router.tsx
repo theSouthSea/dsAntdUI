@@ -72,6 +72,7 @@ const StateMovedDown = lazy(() => import("@/pages/best/performance/StateMovedDow
 const ChildrenMemoComp = lazy(() => import("@/pages/best/performance/ChildrenMemoComp"))
 const PropsMemoComp = lazy(() => import("@/pages/best/performance/PropsMemoComp"))
 const MemoChildren = lazy(() => import("@/pages/best/performance/MemoChildren"))
+const BaseForm = lazy(() => import("@/pages/base/form/ClassForm/Demo"))
 
 export default function ProjectRouter() {
   return (
@@ -190,6 +191,10 @@ export default function ProjectRouter() {
               <Route path="childrenmemocomp" element={<ChildrenMemoComp />} />
               <Route path="propsmemocomp" element={<PropsMemoComp />} />
               <Route path="memochildren" element={<MemoChildren />} />
+            </Route>
+            <Route path="comp/*">
+              <Route index element={<SplitCompOne />} />
+              <Route path="form" element={<BaseForm />} />
             </Route>
           </Route>
         </Routes>
