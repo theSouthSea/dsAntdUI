@@ -1,6 +1,8 @@
-import { useRef, useMemo } from "react"
-import MyModal, { ModalRef } from "@/components/base/Modal"
 import { Button } from "antd"
+import { useMemo, useRef } from "react"
+
+import MyModal, { ModalRef } from "@/components/base/Modal"
+
 const ModalDemo = () => {
   const handleConfirm = () => {
     modalRef.current?.onCloseModal()

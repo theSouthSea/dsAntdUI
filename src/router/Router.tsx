@@ -73,6 +73,9 @@ const ChildrenMemoComp = lazy(() => import("@/pages/best/performance/ChildrenMem
 const PropsMemoComp = lazy(() => import("@/pages/best/performance/PropsMemoComp"))
 const MemoChildren = lazy(() => import("@/pages/best/performance/MemoChildren"))
 const BaseForm = lazy(() => import("@/pages/base/form/ClassForm/Demo"))
+const BadModalDemo = lazy(() => import("@/pages/base/modal/BadModalDemo"))
+const BadModalDemoFix = lazy(() => import("@/pages/base/modal/BadModalDemoFix"))
+const BasicListExample = lazy(() => import("@/pages/business/list/ListPage"))
 
 export default function ProjectRouter() {
   return (
@@ -195,6 +198,9 @@ export default function ProjectRouter() {
             <Route path="comp/*">
               <Route index element={<SplitCompOne />} />
               <Route path="form" element={<BaseForm />} />
+              <Route path="badmodaldemo" element={<BadModalDemo />} />
+              <Route path="badmodaldemofix" element={<BadModalDemoFix />} />
+              <Route path="listdemo" element={<BasicListExample />} />
             </Route>
           </Route>
         </Routes>
