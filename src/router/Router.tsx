@@ -75,6 +75,7 @@ const MemoChildren = lazy(() => import("@/pages/best/performance/MemoChildren"))
 const BaseForm = lazy(() => import("@/pages/base/form/ClassForm/Demo"))
 const BadModalDemo = lazy(() => import("@/pages/base/modal/BadModalDemo"))
 const BadModalDemoFix = lazy(() => import("@/pages/base/modal/BadModalDemoFix"))
+const MessageDemo = lazy(() => import("@/pages/base/message/MessageDemo"))
 const BasicListExample = lazy(() => import("@/pages/business/list/ListPage"))
 
 export default function ProjectRouter() {
@@ -200,6 +201,7 @@ export default function ProjectRouter() {
               <Route path="form" element={<BaseForm />} />
               <Route path="badmodaldemo" element={<BadModalDemo />} />
               <Route path="badmodaldemofix" element={<BadModalDemoFix />} />
+              <Route path="messagedemo" element={<MessageDemo />} />
               <Route path="listdemo" element={<BasicListExample />} />
             </Route>
           </Route>
