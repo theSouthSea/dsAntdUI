@@ -32,24 +32,24 @@ const MessageProvider = forwardRef<RefProps, MessageProviderProps>(function Mess
   const [count, setCount] = useState(0)
   const { state, add, remove, addCount } = useStore()
   console.log("MessageProvider-state", state)
-  if (!ref?.current) {
-    ref.current = {
-      add,
-      remove,
-      addCount,
-    }
-  }
+  // if (!ref?.current) {
+  //   ref.current = {
+  //     add,
+  //     remove,
+  //     addCount,
+  //   }
+  // }
   useEffect(() => {
     console.log("mount")
     return () => {
       console.log("unmount")
     }
   }, [])
-  // useImperativeHandle(ref, () => ({
-  //   add,
-  //   remove,
-  //   addCount,
-  // }))
+  useImperativeHandle(ref, () => ({
+    add,
+    remove,
+    addCount,
+  }))
   // const message = useMemo(() => {
   //   return state.content ? (
   //     <Message {...props} {...state}>
