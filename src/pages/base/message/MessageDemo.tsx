@@ -31,15 +31,30 @@ const MessageDemo = () => {
       >
         Open Message
       </Button>
+      <Button
+        onClick={() => {
+          message?.addCount()
+        }}
+      >
+        add count
+      </Button>
       <Button onClick={handleClick}>Open MyMessage</Button>
       {open ? <MyMessage></MyMessage> : null}
     </>
   )
 }
+// export default MessageDemo
+const Wrapper = () => {
+  return (
+    <div>
+      <MessageDemo></MessageDemo>
+    </div>
+  )
+}
 export default function App() {
   return (
     <ConfigContextProvider>
-      <MessageDemo></MessageDemo>
+      <Wrapper></Wrapper>
     </ConfigContextProvider>
   )
 }

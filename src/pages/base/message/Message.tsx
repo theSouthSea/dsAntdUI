@@ -4,8 +4,9 @@ import { MessageContainer } from "./styled"
 
 interface MessageProps {
   content: ReactNode
+  children: ReactNode
 }
-const Message = ({ content }: MessageProps) => {
-  return <MessageContainer>{content}</MessageContainer>
+const Message = ({ children }: MessageProps) => {
+  return <MessageContainer>{children}</MessageContainer>
 }
 export default Message
