@@ -15,18 +15,19 @@ import ProjectRouter from "@/router/Router"
 // import GrandParentChildProvider from "./pages/best/GrandParentChildProvider"
 // import { GrandProvider as GrandParentChildProvider } from "./pages/best/GrandParentChildOptimize1"
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-  <React.StrictMode>
-    {/* <GrandParentChildProvider>
-      <RouterProvider router={router} />
-      <BrowserRouter>
-        <Router></Router>
-      </BrowserRouter>
-      <ProjectRouter></ProjectRouter>
-    </GrandParentChildProvider> */}
-    {/* <ConfigContextProvider>
-      <ProjectRouter></ProjectRouter>
-    </ConfigContextProvider> */}
-    <ProjectRouter></ProjectRouter>
-  </React.StrictMode>
-)
+// ReactDOM.createRoot(document.getElementById("root")!).render(
+//   <React.StrictMode>
+//     {/* <GrandParentChildProvider>
+//       <RouterProvider router={router} />
+//       <BrowserRouter>
+//         <Router></Router>
+//       </BrowserRouter>
+//       <ProjectRouter></ProjectRouter>
+//     </GrandParentChildProvider> */}
+//     {/* <ConfigContextProvider>
+//       <ProjectRouter></ProjectRouter>
+//     </ConfigContextProvider> */}
+//     <ProjectRouter></ProjectRouter>
+//   </React.StrictMode>
+// )
+ReactDOM.createRoot(document.getElementById("root")!).render(<ProjectRouter></ProjectRouter>)

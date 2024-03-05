@@ -38,6 +38,7 @@ function useStore() {
     type: "info",
     count: 0,
   } as State)
+
   useEffect(() => {
     console.log("useEffect-state", state)
   }, [state])

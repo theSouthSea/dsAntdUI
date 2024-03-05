@@ -39,6 +39,12 @@ const MessageProvider = forwardRef<RefProps, MessageProviderProps>(function Mess
       addCount,
     }
   }
+  useEffect(() => {
+    console.log("useEffect-mount")
+    return () => {
+      console.log("useEffect-unmount")
+    }
+  }, [])
   // useEffect(() => {
   //   console.log("mount")
   //   return () => {
