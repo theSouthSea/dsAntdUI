@@ -47,10 +47,18 @@ const MessageDemo = () => {
 const Wrapper = () => {
   return (
     <div>
+      {/* <Wrapper1></Wrapper1> */}
       <MessageDemo></MessageDemo>
     </div>
   )
 }
+// const Wrapper1 = () => {
+//   return (
+//     <div>
+//       <MessageDemo></MessageDemo>
+//     </div>
+//   )
+// }
 export default function App() {
   return (
     <ConfigContextProvider>

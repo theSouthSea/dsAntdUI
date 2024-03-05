@@ -24,19 +24,21 @@ interface ConfigContextProviderProps extends Partial<ConfigContextValue> {
   children: ReactElement | ReactElement[]
 }
 const ConfigContextProvider = (props: ConfigContextProviderProps) => {
-  const { children, ...otherProps } = props
+  // const { children, ...otherProps } = props
   // const config = {...configContextDefault,...otherProps}
   // const _messageRef = useRef(null)
   const config = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { children, ...otherProps } = props
     return {
       ...configContextDefault,
       ...otherProps,
     }
-  }, [otherProps])
+  }, [props])
   return (
     <ConfigContext.Provider value={config}>
-      <MessageProvider ref={config._messageRef}></MessageProvider>
-      {children}
+      <MessageProvider ref={configContextDefault._messageRef}></MessageProvider>
+      {props.children}
     </ConfigContext.Provider>
   )
 }
