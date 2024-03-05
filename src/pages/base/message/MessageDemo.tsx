@@ -7,7 +7,7 @@ import Message from "./Message"
 import useMessage from "./useMessage"
 
 function MyMessage() {
-  return createPortal(<Message content="hello world"></Message>, document.body)
+  return createPortal(<Message>hello world</Message>, document.body)
 }
 const MessageDemo = () => {
   const [open, setOpen] = useState(false)
