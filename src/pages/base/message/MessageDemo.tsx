@@ -4,6 +4,7 @@ import { createPortal } from "react-dom"
 
 import ConfigContextProvider from "../context/ConfigContext"
 import Message from "./Message"
+import { messageUtils } from "./messageUtils"
 import useMessage from "./useMessage"
 
 function MyMessage() {
@@ -37,6 +38,16 @@ const MessageDemo = () => {
         }}
       >
         add count
+      </Button>
+      <Button
+        onClick={() => {
+          messageUtils.add({
+            type: "info",
+            content: "render message by method!",
+          })
+        }}
+      >
+        render message by method
       </Button>
       <Button onClick={handleClick}>Open MyMessage</Button>
       {open ? <MyMessage></MyMessage> : null}
