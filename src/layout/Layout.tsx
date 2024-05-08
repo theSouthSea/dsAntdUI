@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom"
+
 import { Body, Footer, Header, Main, PageContainer, SideBar } from "./styled"
+
 interface LayoutProps {
   header?: React.ReactNode
   // children: React.ReactNode
