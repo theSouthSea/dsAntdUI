@@ -2,6 +2,7 @@ import { createContext, ReactNode, useContext, useMemo, useReducer } from "react
 
 import { Country } from "@/libs/best/select-country-library"
 
+/* react Context最佳实践 */
 type State = {
   name: string
   country: Country

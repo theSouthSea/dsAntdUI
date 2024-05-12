@@ -66,7 +66,7 @@ const LeftMenu = () => {
         return res
       }
       const result = travel(routerArray)
-      console.log("result", result)
+      // console.log("result", result)
       levelKeys = getLevelKeys(result as LevelKeysProps[])
       setMenus(result)
       console.log("currentRoute.pathname", currentRoute.pathname)
