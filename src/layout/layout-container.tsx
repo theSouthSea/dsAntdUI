@@ -1,5 +1,8 @@
 import { Layout } from "antd"
+import { divide } from "lodash-es"
 import React, { useState } from "react"
+
+import { ErrorBoundary } from "@/components/base/AsyncErorrBoundary"
 
 const { Header, Footer, Sider, Content } = Layout
 interface ModalProps {
@@ -23,7 +26,11 @@ const LayOutContainer: React.FC<ModalProps> = (props) => {
       </Sider>
       <Layout style={{ marginLeft: 200 }}>
         <Header style={headerStyle}>{headerSlot}</Header>
-        <Content style={contentStyle}>{contentSlot}</Content>
+        <Content style={contentStyle}>
+          <ErrorBoundary fallback={<div>当前页面出错了,你可以切换其他页面正常浏览</div>}>
+            {contentSlot}
+          </ErrorBoundary>
+        </Content>
         <Footer style={footerStyle}>{footerSlot}</Footer>
       </Layout>
     </Layout>
@@ -44,7 +51,7 @@ const headerStyle: React.CSSProperties = {
 const contentStyle: React.CSSProperties = {
   textAlign: "center",
   minHeight: 120,
-  lineHeight: "120px",
+  lineHeight: "normal",
   color: "#666",
   // backgroundColor: "#108ee9",
   backgroundColor: "#fff",
