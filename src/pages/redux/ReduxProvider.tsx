@@ -1,7 +1,8 @@
 import { Provider } from "react-redux"
 
+import { store } from "@/store"
+
 import { Counter } from "./ReduxDemo"
-import { store } from "./store"
 
 const ReduxProvider = () => {
   return (

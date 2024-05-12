@@ -1,8 +1,9 @@
 // 这个主要是路由表组件的写法
-import { Suspense, lazy } from "react"
-import { useRoutes, RouteObject } from "react-router-dom"
-import Layout from "@/layout/Layout"
+import { lazy, Suspense } from "react"
+import { RouteObject, useRoutes } from "react-router-dom"
+
 import App from "@/App"
+import Layout from "@/layout/Layout"
 
 const RouteTable: SyncRoute.Routes[] = [
   {
