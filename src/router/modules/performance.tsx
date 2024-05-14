@@ -12,6 +12,7 @@ const PropsMemoComp = lazy(() => import("@/pages/best/performance/PropsMemoComp"
 const MemoChildren = lazy(() => import("@/pages/best/performance/MemoChildren"))
 const HookUpdateByNeed = lazy(() => import("@/pages/best/performance/HookUpdateByNeed"))
 const LazyLoad = lazy(() => import("@/pages/best/performance/LazyLoad"))
+const LazyRender = lazy(() => import("@/pages/best/performance/LazyRender"))
 export default {
   path: "performance/*",
   element: <Layout></Layout>,
@@ -27,5 +28,6 @@ export default {
     { path: "memochildren", element: <MemoChildren /> },
     { path: "HookUpdateByNeed", element: <HookUpdateByNeed /> },
     { path: "LazyLoad", element: <LazyLoad /> },
+    { path: "LazyRender", element: <LazyRender /> },
   ],
 }
