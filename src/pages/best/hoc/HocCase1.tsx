@@ -16,24 +16,24 @@ const SomePage = () => {
   return <Button onClick={onClick}>Click here</Button>
 }
 
-const Button = ({ onClick }: ButtonProps) => {
-  const log = useLoggingSystem()
+// const Button = ({ onClick }: ButtonProps) => {
+//   const log = useLoggingSystem()
 
-  const onButtonClick = () => {
-    log("Button was clicked")
-    onClick()
-  }
+//   const onButtonClick = () => {
+//     log("Button was clicked")
+//     onClick()
+//   }
 
-  return <button onClick={onButtonClick}>{children}</button>
-}
+//   return <button onClick={onButtonClick}>{children}</button>
+// }
 
-const Button = ({ onClick, loggingData }: ButtonProps) => {
-  const onButtonClick = () => {
-    log("Button was clicked", loggingData)
-    onClick()
-  }
-  return <button onClick={onButtonClick}>{children}</button>
-}
+// const Button = ({ onClick, loggingData }: ButtonProps) => {
+//   const onButtonClick = () => {
+//     log("Button was clicked", loggingData)
+//     onClick()
+//   }
+//   return <button onClick={onButtonClick}>{children}</button>
+// }
 const ListItem = ({ onClick, loggingData }: ListItemProps) => {
   const onListItemClick = () => {
     log("List item was clicked", loggingData)

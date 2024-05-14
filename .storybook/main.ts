@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from "@storybook/react-vite"
 
 const config: StorybookConfig = {
   // stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -20,8 +20,14 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  // 现在是webpack构建
+  // 要改成使用vite,需要进行下面的配置
+  // 来源: https://storybook.js.org/docs/builders/vite
+  // core: {
+  //   builder: '@storybook/builder-vite', // 👈 The builder enabled here.
+  // },
   docs: {
     autodocs: "tag",
   },
-};
-export default config;
+}
+export default config
