@@ -13,6 +13,8 @@ const MemoChildren = lazy(() => import("@/pages/best/performance/MemoChildren"))
 const HookUpdateByNeed = lazy(() => import("@/pages/best/performance/HookUpdateByNeed"))
 const LazyLoad = lazy(() => import("@/pages/best/performance/LazyLoad"))
 const LazyRender = lazy(() => import("@/pages/best/performance/LazyRender"))
+const BatchUpdate = lazy(() => import("@/pages/best/performance/BatchUpdate"))
+const UseDebounce = lazy(() => import("@/pages/best/performance/UseDebounce"))
 export default {
   path: "performance/*",
   element: <Layout></Layout>,
@@ -29,5 +31,7 @@ export default {
     { path: "HookUpdateByNeed", element: <HookUpdateByNeed /> },
     { path: "LazyLoad", element: <LazyLoad /> },
     { path: "LazyRender", element: <LazyRender /> },
+    { path: "BatchUpdate", element: <BatchUpdate /> },
+    { path: "UseDebounce", element: <UseDebounce /> },
   ],
 }
