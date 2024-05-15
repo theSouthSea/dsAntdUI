@@ -15,6 +15,10 @@ const LazyLoad = lazy(() => import("@/pages/best/performance/LazyLoad"))
 const LazyRender = lazy(() => import("@/pages/best/performance/LazyRender"))
 const BatchUpdate = lazy(() => import("@/pages/best/performance/BatchUpdate"))
 const UseDebounce = lazy(() => import("@/pages/best/performance/UseDebounce"))
+const UseThrottle = lazy(() => import("@/pages/best/performance/UseThrottle"))
+const UseDebounceUnmount = lazy(() => import("@/pages/best/performance/UseDebounceUnmount"))
+const UseDebounceCbAndValue = lazy(() => import("@/pages/best/performance/UseDebounceCbAndValue"))
+const UseDebounceScroll = lazy(() => import("@/pages/best/performance/UseDebounceScroll"))
 export default {
   path: "performance/*",
   element: <Layout></Layout>,
@@ -33,5 +37,9 @@ export default {
     { path: "LazyRender", element: <LazyRender /> },
     { path: "BatchUpdate", element: <BatchUpdate /> },
     { path: "UseDebounce", element: <UseDebounce /> },
+    { path: "UseThrottle", element: <UseThrottle /> },
+    { path: "UseDebounceUnmount", element: <UseDebounceUnmount /> },
+    { path: "UseDebounceCbAndValue", element: <UseDebounceCbAndValue /> },
+    { path: "UseDebounceScroll", element: <UseDebounceScroll /> },
   ],
 }
