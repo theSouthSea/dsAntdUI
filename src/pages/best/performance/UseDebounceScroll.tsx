@@ -29,7 +29,7 @@ export default function ScrolledComponent() {
 
   return (
     <div style={{ height: 10000 }}>
-      <div style={{ position: "fixed", top: 0, left: 0 }}>
+      <div style={{ position: "fixed", top: 70, left: 250 }}>
         <p>Debounced top position: {position}</p>
         <p>Component rerendered {updatedCount.current} times</p>
       </div>

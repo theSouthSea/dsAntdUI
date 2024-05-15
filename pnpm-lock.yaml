@@ -65,12 +65,24 @@ importers:
       react-visibility-observer:
         specifier: ^1.0.8
         version: 1.0.8(react@18.2.0)
+      react-window:
+        specifier: ^1.8.10
+        version: 1.8.10(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       redux:
         specifier: ^5.0.1
         version: 5.0.1
+      shallowequal:
+        specifier: ^1.1.0
+        version: 1.1.0
+      subscribe-event:
+        specifier: ^1.1.2
+        version: 1.1.2
       use-debounce:
         specifier: ^10.0.0
         version: 10.0.0(react@18.2.0)
+      use-deep-compare:
+        specifier: ^1.2.1
+        version: 1.2.1(react@18.2.0)
       uuid:
         specifier: ^9.0.1
         version: 9.0.1
@@ -5761,6 +5773,13 @@ packages:
     peerDependencies:
       react: '>=16.8.0-0'
 
+  react-window@1.8.10:
+    resolution: {integrity: sha512-Y0Cx+dnU6NLa5/EvoHukUD0BklJ8qITCtVEPY1C/nL8wwoZ0b5aEw8Ff1dOVHw7fCzMt55XfJDd8S8W8LCaUCg==}
+    engines: {node: '>8.0.0'}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+
   react-zdog@1.2.2:
     resolution: {integrity: sha512-Ix7ALha91aOEwiHuxumCeYbARS5XNpc/w0v145oGkM6poF/CvhKJwzLhM5sEZbtrghMA+psAhOJkCTzJoseicA==}
 
@@ -6003,6 +6022,9 @@ packages:
     resolution: {integrity: sha512-/6KqX+GVUdqPuPPd2LxDDxzX6CAbjJehAAOKlNpqqUpAqPM6HeL8f+o3a+JsyGjn2lv0WY8UsTgUJjU9Ok55NA==}
     engines: {node: '>=8'}
 
+  shallowequal@1.1.0:
+    resolution: {integrity: sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==}
+
   shebang-command@2.0.0:
     resolution: {integrity: sha512-kHxr2zZpYtdmrN1qDjrrX/Z1rR1kG8Dx+gkpK1G4eXmvXswmcE1hTWBWYUzlraYw1/yZp6YuDY77YtvbN0dmDA==}
     engines: {node: '>=8'}
@@ -6180,6 +6202,9 @@ packages:
 
   stylis@4.3.0:
     resolution: {integrity: sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==}
+
+  subscribe-event@1.1.2:
+    resolution: {integrity: sha512-v7dZyW+oz3EzJBxTiR/n3wnl4/KGqC8HYc76+YudDULukE3A2tWzWUpgqCk1UwB943u6tVnrMIvzEAjRDwkmCg==}
 
   sucrase@3.35.0:
     resolution: {integrity: sha512-8EbVDiu9iN/nESwxeSxDKe0dunta1GOlHufmSSXxMD2z2/tMZpDMpvXQGsc+ajGo8y2uYUmixaSRUc/QPoQ0GA==}
@@ -6482,6 +6507,11 @@ packages:
   use-debounce@10.0.0:
     resolution: {integrity: sha512-XRjvlvCB46bah9IBXVnq/ACP2lxqXyZj0D9hj4K5OzNroMDpTEBg8Anuh1/UfRTRs7pLhQ+RiNxxwZu9+MVl1A==}
     engines: {node: '>= 16.0.0'}
+    peerDependencies:
+      react: '>=16.8.0'
+
+  use-deep-compare@1.2.1:
+    resolution: {integrity: sha512-JTnOZAr0fq1ix6CQ4XANoWIh03xAiMFlP/lVAYDdAOZwur6nqBSdATn1/Q9PLIGIW+C7xmFZBCcaA4KLDcQJtg==}
     peerDependencies:
       react: '>=16.8.0'
 
@@ -13598,6 +13628,13 @@ snapshots:
     dependencies:
       react: 18.2.0
 
+  react-window@1.8.10(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      '@babel/runtime': 7.24.0
+      memoize-one: 5.2.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+
   react-zdog@1.2.2:
     dependencies:
       react: 18.2.0
@@ -13906,6 +13943,8 @@ snapshots:
     dependencies:
       kind-of: 6.0.3
 
+  shallowequal@1.1.0: {}
+
   shebang-command@2.0.0:
     dependencies:
       shebang-regex: 3.0.0
@@ -14078,6 +14117,8 @@ snapshots:
   stylis@4.2.0: {}
 
   stylis@4.3.0: {}
+
+  subscribe-event@1.1.2: {}
 
   sucrase@3.35.0:
     dependencies:
@@ -14401,6 +14442,11 @@ snapshots:
 
   use-debounce@10.0.0(react@18.2.0):
     dependencies:
+      react: 18.2.0
+
+  use-deep-compare@1.2.1(react@18.2.0):
+    dependencies:
+      dequal: 2.0.3
       react: 18.2.0
 
   use-resize-observer@9.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):

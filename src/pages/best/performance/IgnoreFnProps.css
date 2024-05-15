@@ -1,0 +1,13 @@
+.case {
+  padding: 20px;
+  margin-top: 28px;
+  border: 1px solid #000;
+}
+
+.case button {
+  margin-top: 12px;
+}
+.caseHeader {
+  font-size: 20px;
+  font-weight: 500;
+}

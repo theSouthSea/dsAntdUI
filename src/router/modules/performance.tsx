@@ -1,4 +1,5 @@
 import lazy from "@loadable/component"
+import { Outlet } from "react-router-dom"
 
 import Layout from "@/layout"
 
@@ -19,6 +20,27 @@ const UseThrottle = lazy(() => import("@/pages/best/performance/UseThrottle"))
 const UseDebounceUnmount = lazy(() => import("@/pages/best/performance/UseDebounceUnmount"))
 const UseDebounceCbAndValue = lazy(() => import("@/pages/best/performance/UseDebounceCbAndValue"))
 const UseDebounceScroll = lazy(() => import("@/pages/best/performance/UseDebounceScroll"))
+const PublishSubscribe = lazy(() => import("@/pages/best/performance/PublishSubscribe"))
+const StateDownPut1 = lazy(() => import("@/pages/best/performance/StateDownPut1"))
+const StateDownPut2 = lazy(() => import("@/pages/best/performance/StateDownPut2"))
+const StateDownPut3 = lazy(() => import("@/pages/best/performance/StateDownPut3"))
+const IgnoreFnProps = lazy(() => import("@/pages/best/performance/IgnoreFnProps"))
+const ListKey = lazy(() => import("@/pages/best/performance/ListKey"))
+const VirtualList = lazy(() => import("@/pages/best/performance/react-window/VirtualList"))
+const VirtualListHeightNotFixed = lazy(
+  () => import("@/pages/best/performance/react-window/VirtualListHeightNotFixed"),
+)
+const RowColumn = lazy(() => import("@/pages/best/performance/react-window/RowColumn"))
+const RowColumnNotFixed = lazy(
+  () => import("@/pages/best/performance/react-window/RowColumnNotFixed"),
+)
+const ScrollingIndicate = lazy(
+  () => import("@/pages/best/performance/react-window/ScrollingIndicate"),
+)
+const ScrollToItem = lazy(() => import("@/pages/best/performance/react-window/ScrollToItem"))
+const RowColumnScrollToItem = lazy(
+  () => import("@/pages/best/performance/react-window/RowColumnScrollToItem"),
+)
 export default {
   path: "performance/*",
   element: <Layout></Layout>,
@@ -41,5 +63,24 @@ export default {
     { path: "UseDebounceUnmount", element: <UseDebounceUnmount /> },
     { path: "UseDebounceCbAndValue", element: <UseDebounceCbAndValue /> },
     { path: "UseDebounceScroll", element: <UseDebounceScroll /> },
+    { path: "PublishSubscribe", element: <PublishSubscribe /> },
+    { path: "StateDownPut1", element: <StateDownPut1 /> },
+    { path: "StateDownPut2", element: <StateDownPut2 /> },
+    { path: "StateDownPut3", element: <StateDownPut3 /> },
+    { path: "IgnoreFnProps", element: <IgnoreFnProps /> },
+    { path: "ListKey", element: <ListKey /> },
+    {
+      path: "react-window/*",
+      // element: <Outlet></Outlet>,
+      children: [
+        { path: "VirtualList", element: <VirtualList /> },
+        { path: "VirtualListHeightNotFixed", element: <VirtualListHeightNotFixed /> },
+        { path: "RowColumn", element: <RowColumn /> },
+        { path: "RowColumnNotFixed", element: <RowColumnNotFixed /> },
+        { path: "ScrollToItem", element: <ScrollToItem /> },
+        { path: "RowColumnScrollToItem", element: <RowColumnScrollToItem /> },
+        { path: "ScrollingIndicate", element: <ScrollingIndicate /> },
+      ],
+    },
   ],
 }
