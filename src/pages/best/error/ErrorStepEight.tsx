@@ -43,6 +43,7 @@ const ComponentWithAsyncThrower = () => {
   const throwAsyncError = useThrowAsyncError()
 
   const onClick = () => {
+    // throw new Error("break things")
     try {
       throw new Error("break things")
     } catch (e) {
@@ -50,7 +51,7 @@ const ComponentWithAsyncThrower = () => {
     }
   }
 
-  return <button onClick={onClick}>click me to cause an error</button>
+  return <button onClick={onClick}>click me to cause an error1</button>
 }
 
 const ComponentWithErrorHandler = () => {

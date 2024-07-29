@@ -1,5 +1,4 @@
 import lazy from "@loadable/component"
-import { Outlet } from "react-router-dom"
 
 import Layout from "@/layout"
 
@@ -41,6 +40,7 @@ const ScrollToItem = lazy(() => import("@/pages/best/performance/react-window/Sc
 const RowColumnScrollToItem = lazy(
   () => import("@/pages/best/performance/react-window/RowColumnScrollToItem"),
 )
+const MemorizeItems = lazy(() => import("@/pages/best/performance/react-window/MemorizeItems"))
 export default {
   path: "performance/*",
   element: <Layout></Layout>,
@@ -80,6 +80,7 @@ export default {
         { path: "ScrollToItem", element: <ScrollToItem /> },
         { path: "RowColumnScrollToItem", element: <RowColumnScrollToItem /> },
         { path: "ScrollingIndicate", element: <ScrollingIndicate /> },
+        { path: "MemorizeItems", element: <MemorizeItems /> },
       ],
     },
   ],

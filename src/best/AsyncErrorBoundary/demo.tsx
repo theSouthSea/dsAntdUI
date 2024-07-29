@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode, useEffect, useState } from "react"
+import React, { ReactElement, ReactNode, useState } from "react"
 
 type Props = { children: ReactNode; fallback: ReactElement }
 type State = { hasError: boolean }
@@ -58,6 +58,7 @@ const ComponentWithAsyncThrower = () => {
   const throwAsyncError = useThrowAsyncError()
 
   const onClick = () => {
+    // throw new Error("break things")
     try {
       throw new Error("break things")
     } catch (e) {
@@ -65,7 +66,7 @@ const ComponentWithAsyncThrower = () => {
     }
   }
 
-  return <button onClick={onClick}>click me to cause an error</button>
+  return <button onClick={onClick}>click me to cause an error 1</button>
 }
 const fakeRequest = () => {
   return new Promise((resolve, reject) => {
@@ -91,6 +92,7 @@ const ComponentWithErrorHandler = () => {
   return (
     <div>
       <button onClick={onClickWithErrorHandler}>click me to cause an error</button>
+      <button onClick={onAsyncClick}>async throw error</button>
       <button onClick={onClickWithAsyncErrorHandler}>click me to cause an async error</button>
     </div>
   )

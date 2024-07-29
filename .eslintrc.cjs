@@ -16,7 +16,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     // "no-unused-vars": "error",
     // "@typescript-eslint/no-unused-vars": "error",
-    "no-unused-vars": "off",
+    // "no-unused-vars": "off",
     // "@typescript-eslint/no-unused-vars": ["error", { "args": "none" }] // 或者选择适当的选项以忽略类型声明中的参数
     "import/no-unused-modules": "error",
     "simple-import-sort/imports": "error",
