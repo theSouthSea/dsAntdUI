@@ -7,6 +7,7 @@ const ComponentWillUnmount = lazy(() => import("@/pages/base/useEffect/Component
 const UseIsomorphicLayoutEffect = lazy(
   () => import("@/pages/base/useEffect/UseIsomorphicLayoutEffect"),
 )
+const ArrayState = lazy(() => import("@/pages/base/state/ArrayState"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -22,6 +23,16 @@ export default {
         {
           path: "useIsomorphicLayoutEffect",
           element: <UseIsomorphicLayoutEffect />,
+        },
+      ],
+    },
+    {
+      path: "state/*",
+      element: <SubLayout title="state"></SubLayout>,
+      children: [
+        {
+          path: "arrayState",
+          element: <ArrayState />,
         },
       ],
     },
