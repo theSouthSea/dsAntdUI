@@ -8,6 +8,8 @@ const UseIsomorphicLayoutEffect = lazy(
   () => import("@/pages/base/useEffect/UseIsomorphicLayoutEffect"),
 )
 const ArrayState = lazy(() => import("@/pages/base/state/ArrayState"))
+const AFormDemo = lazy(() => import("@/pages/base/AForm/Demo"))
+const AFormDemoOpt = lazy(() => import("@/pages/base/AForm/DemoOpt"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -33,6 +35,20 @@ export default {
         {
           path: "arrayState",
           element: <ArrayState />,
+        },
+      ],
+    },
+    {
+      path: "AForm/*",
+      element: <SubLayout title="AForm Demo"></SubLayout>,
+      children: [
+        {
+          path: "demo",
+          element: <AFormDemo />,
+        },
+        {
+          path: "demoOpt",
+          element: <AFormDemoOpt />,
         },
       ],
     },
