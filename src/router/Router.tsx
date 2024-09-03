@@ -19,7 +19,7 @@ const DebounceDemo2 = lazy(() => import("@/best/debounce/demo2"))
 const DebounceDemo = lazy(() => import("@/best/debounce/demo"))
 const ErrorBoundaryDemo = lazy(() => import("@/best/AsyncErrorBoundary/demo"))
 const UseDebounceDemo = lazy(() => import("@/best/debounce/demo2"))
-const CloneElementBase = lazy(() => import("@/pages/cloneElement/Base"))
+const CloneElementBase = lazy(() => import("@/pages/reactAPI/cloneElement/Base"))
 const NoPropsChild = lazy(() => import("@/pages/rerender/NoPropsChild"))
 const NoPropsChildFix = lazy(() => import("@/pages/rerender/NoPropsChildFix"))
 const ListPage = lazy(() => import("@/pages/rerender/ListPage"))
@@ -37,11 +37,11 @@ const ConditionRender = lazy(() => import("@/pages/best/reconciliation/Condition
 const ConditionRenderFix = lazy(() => import("@/pages/best/reconciliation/ConditionRenderFix"))
 const ConditionRenderArr = lazy(() => import("@/pages/best/reconciliation/ConditionRenderArr"))
 const ConditionRenderSameKey = lazy(
-  () => import("@/pages/best/reconciliation/ConditionRenderSameKey")
+  () => import("@/pages/best/reconciliation/ConditionRenderSameKey"),
 )
 const ArrayOuterKey = lazy(() => import("@/pages/best/reconciliation/ArrayOuterKey"))
 const ArrayOrderConditionKey = lazy(
-  () => import("@/pages/best/reconciliation/ArrayOrderConditionKey")
+  () => import("@/pages/best/reconciliation/ArrayOrderConditionKey"),
 )
 const RenderCount = lazy(() => import("@/pages/best/reconciliation/RenderCount"))
 const ChildrenBaseDemo = lazy(() => import("@/pages/best/children/BaseDemo"))

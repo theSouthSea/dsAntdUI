@@ -1,5 +1,5 @@
+import styled from "@emotion/styled"
 import { Layout } from "antd"
-import { divide } from "lodash-es"
 import React, { useState } from "react"
 
 import { ErrorBoundary } from "@/components/base/AsyncErorrBoundary"
@@ -16,14 +16,22 @@ const LayOutContainer: React.FC<ModalProps> = (props) => {
   const [collapsed, setCollapsed] = useState(false)
   return (
     <Layout style={{ minHeight: "100vh" }} hasSider>
-      <Sider
+      {/* <Sider
         collapsible
         style={{ overflow: "auto", height: "100vh", position: "fixed", left: 0, top: 0, bottom: 0 }}
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
       >
         {siderSlot}
-      </Sider>
+      </Sider> */}
+      <FixedSiderScrollHeight
+        collapsible
+        style={{ overflow: "auto", height: "100vh", position: "fixed", left: 0, top: 0, bottom: 0 }}
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+      >
+        {siderSlot}
+      </FixedSiderScrollHeight>
       <Layout style={{ marginLeft: 200 }}>
         <Header style={headerStyle}>{headerSlot}</Header>
         <Content style={contentStyle}>
@@ -38,7 +46,12 @@ const LayOutContainer: React.FC<ModalProps> = (props) => {
 }
 
 export default LayOutContainer
-
+const FixedSiderScrollHeight = styled(Sider)`
+  .ant-menu-root {
+    height: 100%;
+    overflow-y: auto;
+  }
+`
 const headerStyle: React.CSSProperties = {
   textAlign: "center",
   color: "#fff",

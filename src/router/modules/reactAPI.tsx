@@ -2,7 +2,7 @@ import lazy from "@loadable/component"
 
 import Layout from "@/layout"
 
-const CloneElementBase = lazy(() => import("@/pages/cloneElement/Base"))
+const CloneElementBase = lazy(() => import("@/pages/reactAPI/cloneElement/Base"))
 const reactAPIRoutes = {
   path: "cloneElement/*",
   element: <Layout></Layout>,

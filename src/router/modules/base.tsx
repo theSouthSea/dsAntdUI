@@ -10,6 +10,13 @@ const UseIsomorphicLayoutEffect = lazy(
 const ArrayState = lazy(() => import("@/pages/base/state/ArrayState"))
 const AFormDemo = lazy(() => import("@/pages/base/AForm/Demo"))
 const AFormDemoOpt = lazy(() => import("@/pages/base/AForm/DemoOpt"))
+const BasePortal = lazy(() => import("@/pages/base/portal/BasePortal"))
+const MyPortal = lazy(() => import("@/pages/base/portal/MyPortal"))
+const MyPortalRef = lazy(() => import("@/pages/base/portal/MyPortalRef"))
+const MutationObserverBase = lazy(() => import("@/pages/base/mutationObserver/Base"))
+const MutationObserver = lazy(() => import("@/pages/base/mutationObserver/MyMutationObserver"))
+const CopyBase = lazy(() => import("@/pages/base/copy/CopyBase"))
+const MyCopy = lazy(() => import("@/pages/base/copy/MyCopy"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -49,6 +56,50 @@ export default {
         {
           path: "demoOpt",
           element: <AFormDemoOpt />,
+        },
+      ],
+    },
+    {
+      path: "portal/*",
+      // element: <SubLayout title="AForm Demo"></SubLayout>,
+      children: [
+        {
+          path: "BasePortal",
+          element: <BasePortal />,
+        },
+        {
+          path: "MyPortal",
+          element: <MyPortal />,
+        },
+        {
+          path: "MyPortalRef",
+          element: <MyPortalRef />,
+        },
+      ],
+    },
+    {
+      path: "mutationObserver/*",
+      children: [
+        {
+          path: "MutationObserverBase",
+          element: <MutationObserverBase></MutationObserverBase>,
+        },
+        {
+          path: "MutationObserver",
+          element: <MutationObserver></MutationObserver>,
+        },
+      ],
+    },
+    {
+      path: "copy/*",
+      children: [
+        {
+          path: "CopyBase",
+          element: <CopyBase></CopyBase>,
+        },
+        {
+          path: "MyCopy",
+          element: <MyCopy></MyCopy>,
         },
       ],
     },
