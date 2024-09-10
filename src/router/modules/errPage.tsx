@@ -5,7 +5,7 @@ import type { RouteObject } from "react-router-dom"
 const NotFound = lazy(() => import("@/pages/404"))
 const errPage: RouteObject[] = [
   {
-    path: "/404",
+    path: "404",
     // element: lazyLoad("pages/404"),
     element: <NotFound></NotFound>,
   },
