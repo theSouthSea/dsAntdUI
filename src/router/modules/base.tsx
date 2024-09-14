@@ -17,6 +17,8 @@ const MutationObserverBase = lazy(() => import("@/pages/base/mutationObserver/Ba
 const MutationObserver = lazy(() => import("@/pages/base/mutationObserver/MyMutationObserver"))
 const CopyBase = lazy(() => import("@/pages/base/copy/CopyBase"))
 const MyCopy = lazy(() => import("@/pages/base/copy/MyCopy"))
+const CustomInterview = lazy(() => import("@/pages/base/upload/CustomInterview"))
+const IconRender = lazy(() => import("@/pages/base/upload/IconRender"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -100,6 +102,19 @@ export default {
         {
           path: "MyCopy",
           element: <MyCopy></MyCopy>,
+        },
+      ],
+    },
+    {
+      path: "upload/*",
+      children: [
+        {
+          path: "CustomInterview",
+          element: <CustomInterview></CustomInterview>,
+        },
+        {
+          path: "IconRender",
+          element: <IconRender></IconRender>,
         },
       ],
     },
