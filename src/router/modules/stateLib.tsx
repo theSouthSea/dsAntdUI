@@ -14,6 +14,10 @@ const UseAtom = lazy(() => import("@/pages/stateLib/jotai/UseAtom"))
 const PerformanceBug = lazy(() => import("@/pages/stateLib/jotai/PerformanceBug"))
 const PerformanceFix = lazy(() => import("@/pages/stateLib/jotai/PerformanceFix"))
 const JotaiMiddleware = lazy(() => import("@/pages/stateLib/jotai/Middleware"))
+const LiteDemo = lazy(() => import("@/pages/stateLib/mobx/LiteDemo"))
+const MobxDemo = lazy(() => import("@/pages/stateLib/mobx/MobxDemo"))
+const MobxReactDemo = lazy(() => import("@/pages/stateLib/mobx/MobxReactDemo"))
+const SimpleDemo = lazy(() => import("@/pages/stateLib/mobx/SimpleDemo"))
 const stateLibRoutes = {
   path: "stateLib/*",
   element: <Layout></Layout>,
@@ -50,10 +54,15 @@ const stateLibRoutes = {
         { path: "PerformanceBug", element: <PerformanceBug /> },
         { path: "PerformanceFix", element: <PerformanceFix /> },
         { path: "Middleware", element: <JotaiMiddleware /> },
-        // {
-        //   path: "Middleware",
-        //   element: <Middleware />,
-        // },
+      ],
+    },
+    {
+      path: "mobx/*",
+      children: [
+        { path: "MobxDemo", element: <MobxDemo /> },
+        { path: "LiteDemo", element: <LiteDemo /> },
+        { path: "MobxReactDemo", element: <MobxReactDemo /> },
+        { path: "SimpleDemo", element: <SimpleDemo /> },
       ],
     },
   ],

@@ -6,7 +6,7 @@ import { ConfigProvider, message, theme } from "antd"
 import enUS from "antd/locale/en_US"
 import zhCN from "antd/locale/zh_CN"
 import dayjs from "dayjs"
-import { useEffect } from "react"
+import { Suspense, useEffect } from "react"
 import { useLocation, useNavigate, useRoutes } from "react-router-dom"
 
 import routes from "@/router/newRoutes"
@@ -54,7 +54,7 @@ function BeforeRouterEnter() {
   if (location.pathname !== "/login" && !token) {
     return <ToLogin />
   }
-  return outlet
+  return <Suspense fallback={<div>loading...</div>}>{outlet}</Suspense>
 }
 function AppConfig() {
   const locale = useAppLocaleContext()
