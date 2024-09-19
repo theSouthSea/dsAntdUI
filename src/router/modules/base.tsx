@@ -1,4 +1,5 @@
 import lazy from "@loadable/component"
+import { lazy as rLazy } from "react"
 
 import Layout from "@/layout"
 import SubLayout from "@/layout/SubLayout"
@@ -10,6 +11,9 @@ const UseIsomorphicLayoutEffect = lazy(
 const ArrayState = lazy(() => import("@/pages/base/state/ArrayState"))
 const AFormDemo = lazy(() => import("@/pages/base/AForm/Demo"))
 const AFormDemoOpt = lazy(() => import("@/pages/base/AForm/DemoOpt"))
+const FormBaseDemo = lazy(() => import("@/pages/base/AForm/BaseDemo"))
+const UseForm = lazy(() => import("@/pages/base/AForm/UseForm"))
+const RefFormValue = lazy(() => import("@/pages/base/AForm/RefFormValue"))
 const BasePortal = lazy(() => import("@/pages/base/portal/BasePortal"))
 const MyPortal = lazy(() => import("@/pages/base/portal/MyPortal"))
 const MyPortalRef = lazy(() => import("@/pages/base/portal/MyPortalRef"))
@@ -19,6 +23,9 @@ const CopyBase = lazy(() => import("@/pages/base/copy/CopyBase"))
 const MyCopy = lazy(() => import("@/pages/base/copy/MyCopy"))
 const CustomInterview = lazy(() => import("@/pages/base/upload/CustomInterview"))
 const IconRender = lazy(() => import("@/pages/base/upload/IconRender"))
+const InlineCheckbox = rLazy(() => import("@/pages/base/checkbox/InlineCheckbox"))
+const CustomCheckbox = lazy(() => import("@/pages/base/checkbox/CustomCheckbox"))
+const HiddenCheckbox = lazy(() => import("@/pages/base/checkbox/HiddenCheckbox"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -58,6 +65,18 @@ export default {
         {
           path: "demoOpt",
           element: <AFormDemoOpt />,
+        },
+        {
+          path: "BaseDemo",
+          element: <FormBaseDemo />,
+        },
+        {
+          path: "UseForm",
+          element: <UseForm />,
+        },
+        {
+          path: "RefFormValue",
+          element: <RefFormValue />,
         },
       ],
     },
@@ -115,6 +134,23 @@ export default {
         {
           path: "IconRender",
           element: <IconRender></IconRender>,
+        },
+      ],
+    },
+    {
+      path: "checkbox/*",
+      children: [
+        {
+          path: "CustomCheckbox",
+          element: <CustomCheckbox></CustomCheckbox>,
+        },
+        {
+          path: "InlineCheckbox",
+          element: <InlineCheckbox></InlineCheckbox>,
+        },
+        {
+          path: "HiddenCheckbox",
+          element: <HiddenCheckbox></HiddenCheckbox>,
         },
       ],
     },
