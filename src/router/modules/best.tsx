@@ -18,6 +18,11 @@ const DebounceDemo2 = lazy(() => import("@/best/debounce/demo2"))
 const DebounceDemo = lazy(() => import("@/best/debounce/demo"))
 const ErrorBoundaryDemo = lazy(() => import("@/best/AsyncErrorBoundary/demo"))
 const UseDebounceDemo = lazy(() => import("@/best/debounce/demo2"))
+const Controlled = lazy(() => import("@/pages/best/controlledOrNot/Controlled"))
+const NotControlled = lazy(() => import("@/pages/best/controlledOrNot/NotControlled"))
+const CombinedControlledOpt3 = lazy(
+  () => import("@/pages/best/controlledOrNot/CombinedControlledOpt3"),
+)
 
 const bestRoutes = {
   path: "best/*",
@@ -45,6 +50,14 @@ const bestRoutes = {
     { path: "bestdemo", element: <BestDemo /> },
     { path: "errorboundary", element: <ErrorBoundaryDemo /> },
     { path: "useDebounce", element: <UseDebounceDemo /> },
+    {
+      path: "controlledOrNot/*",
+      children: [
+        { path: "NotControlled", element: <NotControlled /> },
+        { path: "Controlled", element: <Controlled /> },
+        { path: "CombinedControlledOpt3", element: <CombinedControlledOpt3 /> },
+      ],
+    },
   ],
 }
 export default bestRoutes

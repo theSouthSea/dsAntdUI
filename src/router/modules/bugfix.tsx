@@ -15,6 +15,7 @@ const ImmerFixObjBug = lazy(() => import("@/pages/bugfix/Obj/ImmerFixObjBug"))
 const MultipleStateBug = lazy(() => import("@/pages/bugfix/State/MultipleStateBug"))
 const MultipleStateFix = lazy(() => import("@/pages/bugfix/State/MultipleStateFix"))
 const BatchUpdate = lazy(() => import("@/pages/bugfix/State/BatchUpdate"))
+const RenderSetState = lazy(() => import("@/pages/bugfix/update/RenderSetState"))
 export default {
   path: "bugfix/*",
   element: <Layout></Layout>,
@@ -85,6 +86,15 @@ export default {
         {
           path: "BatchUpdate",
           element: <BatchUpdate />,
+        },
+      ],
+    },
+    {
+      path: "update/*",
+      children: [
+        {
+          path: "RenderSetState",
+          element: <RenderSetState />,
         },
       ],
     },
