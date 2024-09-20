@@ -26,6 +26,7 @@ const IconRender = lazy(() => import("@/pages/base/upload/IconRender"))
 const InlineCheckbox = rLazy(() => import("@/pages/base/checkbox/InlineCheckbox"))
 const CustomCheckbox = lazy(() => import("@/pages/base/checkbox/CustomCheckbox"))
 const HiddenCheckbox = lazy(() => import("@/pages/base/checkbox/HiddenCheckbox"))
+const ImgTextCheckbox = lazy(() => import("@/pages/base/checkbox/ImgTextCheckbox"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -151,6 +152,10 @@ export default {
         {
           path: "HiddenCheckbox",
           element: <HiddenCheckbox></HiddenCheckbox>,
+        },
+        {
+          path: "ImgTextCheckbox",
+          element: <ImgTextCheckbox></ImgTextCheckbox>,
         },
       ],
     },
