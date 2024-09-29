@@ -16,6 +16,7 @@ const MultipleStateBug = lazy(() => import("@/pages/bugfix/State/MultipleStateBu
 const MultipleStateFix = lazy(() => import("@/pages/bugfix/State/MultipleStateFix"))
 const BatchUpdate = lazy(() => import("@/pages/bugfix/State/BatchUpdate"))
 const RenderSetState = lazy(() => import("@/pages/bugfix/update/RenderSetState"))
+const ArrayMap = lazy(() => import("@/pages/bugfix/ArrayMap"))
 export default {
   path: "bugfix/*",
   element: <Layout></Layout>,
@@ -29,6 +30,10 @@ export default {
       //     element: <KeyBug />,
       //   },
       // ],
+    },
+    {
+      path: "ArrayMap",
+      element: <ArrayMap />,
     },
     {
       path: "ObjArray/*",

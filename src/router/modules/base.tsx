@@ -23,6 +23,11 @@ const CopyBase = lazy(() => import("@/pages/base/copy/CopyBase"))
 const MyCopy = lazy(() => import("@/pages/base/copy/MyCopy"))
 const CustomInterview = lazy(() => import("@/pages/base/upload/CustomInterview"))
 const IconRender = lazy(() => import("@/pages/base/upload/IconRender"))
+const BeforeUpload = lazy(() => import("@/pages/base/upload/BeforeUpload"))
+const CustomRequest = lazy(() => import("@/pages/base/upload/CustomRequest"))
+const UploadProgress = lazy(() => import("@/pages/base/upload/UploadProgress"))
+const DownloadArrayBuffer = lazy(() => import("@/pages/base/down/DownloadArrayBuffer"))
+const DownloadBlob = lazy(() => import("@/pages/base/down/DownloadBlob"))
 const InlineCheckbox = rLazy(() => import("@/pages/base/checkbox/InlineCheckbox"))
 const CustomCheckbox = lazy(() => import("@/pages/base/checkbox/CustomCheckbox"))
 const HiddenCheckbox = lazy(() => import("@/pages/base/checkbox/HiddenCheckbox"))
@@ -135,6 +140,31 @@ export default {
         {
           path: "IconRender",
           element: <IconRender></IconRender>,
+        },
+        {
+          path: "BeforeUpload",
+          element: <BeforeUpload></BeforeUpload>,
+        },
+        {
+          path: "CustomRequest",
+          element: <CustomRequest></CustomRequest>,
+        },
+        {
+          path: "UploadProgress",
+          element: <UploadProgress></UploadProgress>,
+        },
+      ],
+    },
+    {
+      path: "download/*",
+      children: [
+        {
+          path: "DownloadArrayBuffer",
+          element: <DownloadArrayBuffer></DownloadArrayBuffer>,
+        },
+        {
+          path: "DownloadBlob",
+          element: <DownloadBlob></DownloadBlob>,
         },
       ],
     },

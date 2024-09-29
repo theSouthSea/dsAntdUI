@@ -3,12 +3,25 @@ import lazy from "@loadable/component"
 import Layout from "@/layout"
 
 const CloneElementBase = lazy(() => import("@/pages/reactAPI/cloneElement/Base"))
+const ArrayRef = lazy(() => import("@/pages/reactAPI/ref/ArrayRef"))
+const NoFlushSyncBug = lazy(() => import("@/pages/reactAPI/flushSync/NoFlushSyncBug"))
+const FlushSyncFix = lazy(() => import("@/pages/reactAPI/flushSync/FlushSyncFix"))
 const reactAPIRoutes = {
-  path: "cloneElement/*",
+  path: "reactAPI/*",
   element: <Layout></Layout>,
   children: [
-    { index: true, element: <CloneElementBase /> },
-    { path: "base", element: <CloneElementBase /> },
+    {
+      path: "cloneElement/*",
+      children: [{ path: "base", element: <CloneElementBase /> }],
+    },
+    {
+      path: "flushSync/*",
+      children: [
+        { path: "NoFlushSyncBug", element: <NoFlushSyncBug /> },
+        { path: "FlushSyncFix", element: <FlushSyncFix /> },
+      ],
+    },
+    { path: "ref/*", children: [{ path: "ArrayRef", element: <ArrayRef /> }] },
   ],
 }
 export default reactAPIRoutes
