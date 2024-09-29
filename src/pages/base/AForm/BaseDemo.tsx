@@ -32,6 +32,8 @@ const App: React.FC = () => (
       name="username"
       rules={[{ required: true, message: "Please input your username!" }]}
     >
+      {/* 添加defaultValue会提示错误,在受控组件上无效,需要使用Form的initialValues替代 */}
+      {/* <Input defaultValue="admin" /> */}
       <Input />
     </Form.Item>
 
@@ -56,6 +58,7 @@ const App: React.FC = () => (
         Submit
       </Button>
     </Form.Item>
+    <Input name="test" defaultValue="test" />
   </Form>
 )
 
