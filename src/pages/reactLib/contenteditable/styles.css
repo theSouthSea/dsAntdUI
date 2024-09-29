@@ -1,0 +1,27 @@
+.editable {
+  padding: 5px;
+  margin-left: 10%;
+  border: 1px dashed #aaa;
+  font-family: sans-serif;
+  resize: none;
+  width: 75%;
+  min-height: 100px;
+}
+
+textarea.editable {
+  font-family: monospace;
+}
+
+button {
+  min-width: 70px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.baseContentEditable [contenteditable="true"] {
+  padding: 5px;
+  margin: 50px;
+  border: 1px dashed #aaa;
+  font-family: sans-serif;
+  min-height: 50px;
+}
