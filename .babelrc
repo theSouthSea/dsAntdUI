@@ -6,11 +6,12 @@
     "@emotion/babel-plugin",
     // ["@babel/plugin-proposal-decorators", { "legacy": false }],
     // ["@babel/plugin-proposal-decorators", { "legacy": true,"decoratorAutoAccessors": true, "decoratorsBeforeExport": true }],
-    [
-      "@babel/plugin-proposal-decorators",
-      { "legacy": false, "decoratorAutoAccessors": true, "decoratorsBeforeExport": true }
-    ],
-    "@babel/plugin-proposal-class-properties"
+    // [
+    //   "@babel/plugin-proposal-decorators",
+    //   { "legacy": false, "decoratorAutoAccessors": true, "decoratorsBeforeExport": true }
+    // ],
+    ["@babel/plugin-proposal-decorators", { "version": "2023-11" }]
+    // "@babel/plugin-proposal-class-properties"
     // "@babel/plugin-transform-class-properties",
   ],
   "compact": false

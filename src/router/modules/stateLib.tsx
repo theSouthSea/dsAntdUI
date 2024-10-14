@@ -1,4 +1,5 @@
 import lazy from "@loadable/component"
+import { lazy as rLazy } from "react"
 
 import Layout from "@/layout"
 
@@ -18,6 +19,10 @@ const LiteDemo = lazy(() => import("@/pages/stateLib/mobx/LiteDemo"))
 const MobxDemo = lazy(() => import("@/pages/stateLib/mobx/MobxDemo"))
 const MobxReactDemo = lazy(() => import("@/pages/stateLib/mobx/MobxReactDemo"))
 const SimpleDemo = lazy(() => import("@/pages/stateLib/mobx/SimpleDemo"))
+// const MobxStoreDemo = lazy(() => import("@/pages/stateLib/mobx/StoreDemo"))
+const MobxStoreDemo = rLazy(() => import("@/pages/stateLib/mobx/StoreDemo"))
+const SimpleMobx = lazy(() => import("@/pages/stateLib/mobx/SimpleMobx"))
+const MakeAutoObservable = lazy(() => import("@/pages/stateLib/mobx/StoreDemo/MakeAutoObservable"))
 const stateLibRoutes = {
   path: "stateLib/*",
   element: <Layout></Layout>,
@@ -63,6 +68,9 @@ const stateLibRoutes = {
         { path: "LiteDemo", element: <LiteDemo /> },
         { path: "MobxReactDemo", element: <MobxReactDemo /> },
         { path: "SimpleDemo", element: <SimpleDemo /> },
+        { path: "MobxStoreDemo", element: <MobxStoreDemo /> },
+        { path: "SimpleMobx", element: <SimpleMobx /> },
+        { path: "MakeAutoObservable", element: <MakeAutoObservable /> },
       ],
     },
   ],

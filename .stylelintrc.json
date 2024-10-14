@@ -4,13 +4,15 @@
   "rules": {
     "order/order": ["custom-properties", "declarations"],
     "order/properties-order": [
+      "display",
+      "width",
+      "height",
       "position",
       "top",
       "right",
       "bottom",
       "left",
       "z-index",
-      "display",
       "justify-content",
       "align-items",
       "flex-direction",
