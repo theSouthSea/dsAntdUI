@@ -7,6 +7,7 @@ type Option<T> = {
   onChange?: (value: T) => void
 }
 export const usePropsValue = <T>(option: Option<T>) => {
+  console.log("usePropsValue-run=")
   const { value, defaultValue, onChange } = option
   const isControlled = value !== undefined
   const localValueRef = useRef<T | undefined>(isControlled ? value : defaultValue)

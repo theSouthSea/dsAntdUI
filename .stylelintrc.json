@@ -5,9 +5,9 @@
     "order/order": ["custom-properties", "declarations"],
     "order/properties-order": [
       "display",
+      "position",
       "width",
       "height",
-      "position",
       "top",
       "right",
       "bottom",

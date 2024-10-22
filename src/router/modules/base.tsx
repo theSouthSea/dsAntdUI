@@ -32,6 +32,10 @@ const InlineCheckbox = rLazy(() => import("@/pages/base/checkbox/InlineCheckbox"
 const CustomCheckbox = lazy(() => import("@/pages/base/checkbox/CustomCheckbox"))
 const HiddenCheckbox = lazy(() => import("@/pages/base/checkbox/HiddenCheckbox"))
 const ImgTextCheckbox = lazy(() => import("@/pages/base/checkbox/ImgTextCheckbox"))
+const CardCheckbox = lazy(() => import("@/pages/base/checkbox/CardCheckbox"))
+const CardCheckboxFix = lazy(() => import("@/pages/base/checkbox/CardCheckboxFix"))
+const CardCheckboxFix1 = lazy(() => import("@/pages/base/checkbox/CardCheckboxFix1"))
+const CardCheckboxModal = lazy(() => import("@/pages/base/checkbox/CardCheckboxModal"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -186,6 +190,22 @@ export default {
         {
           path: "ImgTextCheckbox",
           element: <ImgTextCheckbox></ImgTextCheckbox>,
+        },
+        {
+          path: "CardCheckbox",
+          element: <CardCheckbox></CardCheckbox>,
+        },
+        {
+          path: "CardCheckboxFix",
+          element: <CardCheckboxFix></CardCheckboxFix>,
+        },
+        {
+          path: "CardCheckboxFix1",
+          element: <CardCheckboxFix1></CardCheckboxFix1>,
+        },
+        {
+          path: "CardCheckboxModal",
+          element: <CardCheckboxModal></CardCheckboxModal>,
         },
       ],
     },

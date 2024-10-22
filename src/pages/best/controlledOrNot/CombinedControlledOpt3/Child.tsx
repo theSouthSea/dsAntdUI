@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { usePropsValue } from "@/hooks/usePropsValue"
 
 interface ChildProps {
@@ -6,11 +8,13 @@ interface ChildProps {
   onChange?: (value: string) => void
 }
 const Child = (props: ChildProps) => {
-  const { defaultValue, onChange } = props
+  const { defaultValue, onChange, value } = props
   const [localVal, setState] = usePropsValue({
     defaultValue,
     onChange,
+    value,
   })
+  console.log("child-render")
   return (
     <input
       // value={finalValue}
@@ -22,4 +26,15 @@ const Child = (props: ChildProps) => {
     ></input>
   )
 }
-export default Child
+export default function App() {
+  const [value, setValue] = useState("123")
+  const handleChange = (value: string) => {
+    setValue(value)
+  }
+  console.log("App render")
+  return (
+    <div>
+      <Child value={value} onChange={handleChange} />
+    </div>
+  )
+}

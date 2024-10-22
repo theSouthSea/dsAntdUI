@@ -1,3 +1,5 @@
+import { ReactElement } from "react"
+
 import styles from "./index.module.less"
 
 interface ImgTextCheckboxProps {
@@ -6,7 +8,7 @@ interface ImgTextCheckboxProps {
   value: string
   checked?: boolean
   label: string
-  icon?: SVGRectElement
+  icon?: ReactElement
 }
 const ImgTextCheckbox = (props: ImgTextCheckboxProps) => {
   const { id, name, value, checked, label, icon } = props
