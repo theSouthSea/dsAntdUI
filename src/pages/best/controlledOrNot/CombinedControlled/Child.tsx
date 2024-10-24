@@ -9,7 +9,7 @@ const Child = (props: ChildProps) => {
   const isControlled = value !== undefined
   const [localVal, setLocalVal] = useState(value)
   useEffect(() => {
-    if (!isControlled) {
+    if (isControlled) {
       setLocalVal(value)
     }
   }, [value, isControlled])
