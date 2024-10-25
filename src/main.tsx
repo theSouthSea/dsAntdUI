@@ -1,4 +1,5 @@
 import "./index.css"
+import "./scrollbar.css"
 import "../mock"
 
 import ReactDOM from "react-dom/client"
