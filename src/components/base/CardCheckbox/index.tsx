@@ -2,12 +2,15 @@ import { ChangeEvent } from "react"
 
 import styles from "./index.module.less"
 
-export interface CardCheckboxProps {
-  id: string
-  name: string
-  value: string
-  label: string
+export interface CheckboxItem {
+  value: string | number
+  label: string | number
+  checked?: boolean
   icon?: React.ReactNode
+  id?: string | number
+  name?: string
+}
+export interface CardCheckboxProps extends CheckboxItem {
   direction?: "horizontal" | "vertical"
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
