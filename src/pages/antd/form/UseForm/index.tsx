@@ -28,6 +28,7 @@ const App: React.FC = () => {
         break
       case "other":
         form.setFieldsValue({ note: "Hi there!" })
+        // form.setFieldValue("note", "Hello")
         break
       default:
     }
