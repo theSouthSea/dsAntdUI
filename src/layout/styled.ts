@@ -14,10 +14,12 @@ export const Header = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;
   height: 20px;
-  padding: 0 20px;
-  background-color: #f00;
+  column-gap: 10px;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 `
 export const Body = styled.div`
   display: flex;

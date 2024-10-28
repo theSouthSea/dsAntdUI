@@ -1,10 +1,12 @@
 import type { MenuProps } from "antd"
 import { Menu } from "antd"
 import { useEffect, useState } from "react"
+import { useDispatch } from "react-redux"
 import { RouteObject, useLocation, useNavigate } from "react-router-dom"
 
 // import { fetchGetMenu } from "@/service/api"
 import { routerArray } from "@/router/newRoutes"
+import { setMenuList } from "@/store/user.store"
 import { MenuItem } from "@/types/auth"
 
 interface LevelKeysProps {
@@ -31,6 +33,7 @@ const getLevelKeys = (items1: LevelKeysProps[]) => {
 let levelKeys = {} as Record<string, number>
 
 const LeftMenu = () => {
+  const dispatch = useDispatch()
   const navigateTo = useNavigate()
   const currentRoute = useLocation()
   const [menus, setMenus] = useState<MenuItem[]>([])
@@ -47,6 +50,7 @@ const LeftMenu = () => {
       // 从路由获取菜单数据
       function travel(routes: RouteObject[], prefix = "/") {
         const res: any[] = []
+        let flatArr: any[] = []
         routes.forEach((item) => {
           if (item.path) {
             const realPath = item.path.startsWith("/")
@@ -58,15 +62,25 @@ const LeftMenu = () => {
               label: item.name || item.meta?.title || item.path.replace("/*", ""),
             }
             if (item.children?.length > 0) {
-              menuItem.children = travel(item.children, realPath)
+              const [resChild, flatArrChild] = travel(item.children, realPath)
+              menuItem.children = resChild
+              flatArr = flatArr.concat(flatArrChild)
+            } else {
+              flatArr.push(menuItem)
             }
             res.push(menuItem)
           }
         })
-        return res
+        return [res, flatArr]
+        // return res
       }
-      const result = travel(routerArray)
+      // console.log("routerArray=", routerArray)
+      const [result, flatArr] = travel(routerArray)
+      // console.log("flatArr", flatArr)
+      dispatch(setMenuList(flatArr))
+      // const result = travel(routerArray)
       // console.log("result", result)
+
       levelKeys = getLevelKeys(result as LevelKeysProps[])
       setMenus(result)
       console.log("currentRoute.pathname", currentRoute.pathname)

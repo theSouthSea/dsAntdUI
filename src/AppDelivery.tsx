@@ -64,13 +64,14 @@ function AppConfig() {
   } else {
     dayjs.locale("zh-cn")
   }
+  console.log("globalTheme", globalTheme)
   return (
     <ConfigProvider
       locale={languageList[locale]}
       theme={{
+        token: { colorPrimary: "#13c2c2" },
         // 1. 单独使用暗色算法
         algorithm: globalTheme === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm,
-
         // 2. 组合使用暗色算法与紧凑算法
         // algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
       }}

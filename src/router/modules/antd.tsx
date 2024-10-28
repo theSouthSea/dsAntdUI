@@ -17,12 +17,16 @@ const TabsSvgBug = lazy(() => import("@/pages/antd/tabs/TabsSvgBug"))
 const StepsCache = lazy(() => import("@/pages/antd/steps/StepsCache"))
 const RequestLoading = lazy(() => import("@/pages/antd/spin/RequestLoading"))
 const GlobalLoading = lazy(() => import("@/pages/antd/spin/GlobalLoading"))
+const FullScreenSpin = lazy(() => import("@/pages/antd/spin/FullScreenSpin"))
 const LoadingButton = lazy(() => import("@/pages/antd/button/LoadingButton"))
 const InputMaxMin = lazy(() => import("@/pages/antd/inputNumber/InputMaxMin"))
 const InputAddonPrefix = lazy(() => import("@/pages/antd/inputNumber/InputAddonPrefix"))
 const BaseForm = lazy(() => import("@/pages/antd/form/BaseForm"))
 const UseForm = lazy(() => import("@/pages/antd/form/UseForm"))
 const FormWithRef = lazy(() => import("@/pages/antd/form/FormWithRef"))
+const CustomFormField = lazy(() => import("@/pages/antd/form/CustomFormField"))
+const DatePickerDayjs = lazy(() => import("@/pages/antd/form/DatePickerDayjs"))
+const ValidateOtherComp = lazy(() => import("@/pages/antd/form/ValidateOtherComp"))
 
 export default {
   path: "antd/*",
@@ -111,6 +115,10 @@ export default {
           path: "GlobalLoading",
           element: <GlobalLoading></GlobalLoading>,
         },
+        {
+          path: "FullScreenSpin",
+          element: <FullScreenSpin></FullScreenSpin>,
+        },
       ],
     },
     {
@@ -149,6 +157,18 @@ export default {
         {
           path: "FormWithRef",
           element: <FormWithRef></FormWithRef>,
+        },
+        {
+          path: "CustomFormField",
+          element: <CustomFormField></CustomFormField>,
+        },
+        {
+          path: "DatePickerDayjs",
+          element: <DatePickerDayjs></DatePickerDayjs>,
+        },
+        {
+          path: "ValidateOtherComp",
+          element: <ValidateOtherComp></ValidateOtherComp>,
         },
       ],
     },

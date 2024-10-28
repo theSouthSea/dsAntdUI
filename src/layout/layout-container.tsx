@@ -4,6 +4,8 @@ import React, { useState } from "react"
 
 import { ErrorBoundary } from "@/components/base/AsyncErorrBoundary"
 
+import TagsView from "./tagView"
+
 const { Header, Footer, Sider, Content } = Layout
 interface ModalProps {
   siderSlot?: React.ReactNode
@@ -34,12 +36,13 @@ const LayOutContainer: React.FC<ModalProps> = (props) => {
       </FixedSiderScrollHeight>
       <Layout style={{ marginLeft: 200 }}>
         <Header style={headerStyle}>{headerSlot}</Header>
+        <TagsView />
         <Content style={contentStyle}>
           <ErrorBoundary fallback={<div>当前页面出错了,你可以切换其他页面正常浏览</div>}>
             {contentSlot}
           </ErrorBoundary>
         </Content>
-        <Footer style={footerStyle}>{footerSlot}</Footer>
+        {/* <Footer style={footerStyle}>{footerSlot}</Footer> */}
       </Layout>
     </Layout>
   )
@@ -53,12 +56,20 @@ const FixedSiderScrollHeight = styled(Sider)`
   }
 `
 const headerStyle: React.CSSProperties = {
-  textAlign: "center",
-  color: "#fff",
+  // textAlign: "center",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  color: "#333",
   height: 64,
-  paddingInline: 50,
+  paddingInline: 15,
   lineHeight: "64px",
-  backgroundColor: "#7dbcea",
+  backgroundColor: "#fff",
+  boxShadow: "0 4px 4px rgb(0 21 41 / 8%)",
+  // boxShadow: "0 4px 4px #333",
+  position: "relative",
+  zIndex: 10,
+  // backgroundColor: "#7dbcea",
 }
 
 const contentStyle: React.CSSProperties = {

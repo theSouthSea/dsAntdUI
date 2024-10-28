@@ -46,4 +46,10 @@ class Store {
     this.hobby.splice(index, 1)
   }
 }
+// const store = new Store();
+// function getStore(): Store {
+//   return store
+// }
+// const store1 = getStore()
+// store1.address
 export default new Store()

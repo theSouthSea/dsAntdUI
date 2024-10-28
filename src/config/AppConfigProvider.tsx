@@ -34,7 +34,10 @@ const appReducer = (state: State, action: Actions) => {
   }
 }
 const AppConfigProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(appReducer, {} as State)
+  const [state, dispatch] = useReducer(appReducer, {
+    locale: "en-US",
+    theme: "light",
+  } as State)
   const api = useMemo(() => {
     return {
       updateLocale: (locale: State["locale"]) => {

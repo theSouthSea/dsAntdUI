@@ -7,3 +7,6 @@ export function getToken() {
 export function setToken(data: string) {
   return sessionCache.setCache("__TOKEN__", data)
 }
+export function removeToken() {
+  return sessionCache.removeCache("__TOKEN__")
+}

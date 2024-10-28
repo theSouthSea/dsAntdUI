@@ -3,6 +3,7 @@ import { lazy } from "react"
 import Layout from "@/layout"
 
 const EditableComp = lazy(() => import("@/pages/features/EditableComp"))
+const ViewBox = lazy(() => import("@/pages/features/svg/ViewBox"))
 export default {
   path: "features/*",
   element: <Layout></Layout>,
@@ -16,6 +17,15 @@ export default {
       //     element: <KeyBug />,
       //   },
       // ],
+    },
+    {
+      path: "svg/*",
+      children: [
+        {
+          path: "ViewBox",
+          element: <ViewBox />,
+        },
+      ],
     },
   ],
 }

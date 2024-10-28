@@ -21,8 +21,8 @@ const CardCheckbox = (props: CardCheckboxProps) => {
   }
   return (
     <div className={styles.cardBox}>
-      <input type="checkbox" id={id} name={name} value={value} onChange={handleChange} />
-      <label htmlFor={id} className={styles[direction]}>
+      <input type="checkbox" id={String(id)} name={name} value={value} onChange={handleChange} />
+      <label htmlFor={String(id)} className={styles[direction]}>
         {icon && <div className={styles.iconBox}>{icon}</div>}
         <div className={styles.labelBox}>{label}</div>
       </label>

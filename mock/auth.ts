@@ -1,13 +1,17 @@
 import { LoginRequest } from "@/types/auth"
 import type { BackendServiceResult } from "@/types/service"
 import { randomStr } from "@/utils/common"
+
+interface PostParam<T> {
+  body: T
+}
 // const a = "1";
 // const a = 2;
 export default [
   {
     url: "/api/login",
     method: "post",
-    response: (data: LoginRequest): BackendServiceResult => {
+    response: (data: PostParam<LoginRequest>): BackendServiceResult => {
       if (data.body.code !== data.body.originCode) {
         return {
           code: 201,
@@ -21,6 +25,24 @@ export default [
         data: {
           token: 1234,
         },
+      }
+    },
+  },
+  {
+    url: "/api/logout",
+    method: "post",
+    response: (data: PostParam<{ token: string }>): BackendServiceResult => {
+      if (data.body.token !== undefined) {
+        return {
+          code: 200,
+          message: "退出成功",
+          data: true,
+        }
+      }
+      return {
+        code: 500,
+        message: "退出登录失败",
+        data: false,
       }
     },
   },

@@ -23,6 +23,12 @@ const NotControlled = lazy(() => import("@/pages/best/controlledOrNot/NotControl
 const CombinedControlledOpt3 = lazy(
   () => import("@/pages/best/controlledOrNot/CombinedControlledOpt3"),
 )
+const CombinedControlledOpt2 = lazy(
+  () => import("@/pages/best/controlledOrNot/CombinedControlledOpt2"),
+)
+const CombinedControlledOpt2NoC = lazy(
+  () => import("@/pages/best/controlledOrNot/CombinedControlledOpt2/NoControlled"),
+)
 const UncacheComp = lazy(() => import("@/pages/best/cache/cacheComp/UncacheComp"))
 const CompCache1 = lazy(() => import("@/pages/best/cache/CompCache1"))
 
@@ -57,6 +63,8 @@ const bestRoutes = {
       children: [
         { path: "NotControlled", element: <NotControlled /> },
         { path: "Controlled", element: <Controlled /> },
+        { path: "CombinedControlledOpt2", element: <CombinedControlledOpt2 /> },
+        { path: "CombinedControlledOpt2NoC", element: <CombinedControlledOpt2NoC /> },
         { path: "CombinedControlledOpt3", element: <CombinedControlledOpt3 /> },
       ],
     },
