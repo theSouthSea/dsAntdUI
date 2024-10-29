@@ -19,3 +19,7 @@ declare module "sanitize-html"
 //   const content: string
 //   export default content
 // }
+interface IOption {
+  label: string
+  value: string
+}

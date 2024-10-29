@@ -27,6 +27,8 @@ const FormWithRef = lazy(() => import("@/pages/antd/form/FormWithRef"))
 const CustomFormField = lazy(() => import("@/pages/antd/form/CustomFormField"))
 const DatePickerDayjs = lazy(() => import("@/pages/antd/form/DatePickerDayjs"))
 const ValidateOtherComp = lazy(() => import("@/pages/antd/form/ValidateOtherComp"))
+const CustomFieldValidate = lazy(() => import("@/pages/antd/form/CustomFieldValidate"))
+const LabelInValue = lazy(() => import("@/pages/antd/treeSelect/LabelInValue"))
 
 export default {
   path: "antd/*",
@@ -169,6 +171,19 @@ export default {
         {
           path: "ValidateOtherComp",
           element: <ValidateOtherComp></ValidateOtherComp>,
+        },
+        {
+          path: "CustomFieldValidate",
+          element: <CustomFieldValidate></CustomFieldValidate>,
+        },
+      ],
+    },
+    {
+      path: "treeSelect/*",
+      children: [
+        {
+          path: "LabelInValue",
+          element: <LabelInValue></LabelInValue>,
         },
       ],
     },
