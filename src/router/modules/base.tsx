@@ -36,6 +36,7 @@ const CardCheckbox = lazy(() => import("@/pages/base/checkbox/CardCheckbox"))
 const CardCheckboxFix = lazy(() => import("@/pages/base/checkbox/CardCheckboxFix"))
 const CardCheckboxFix1 = lazy(() => import("@/pages/base/checkbox/CardCheckboxFix1"))
 const CardCheckboxModal = lazy(() => import("@/pages/base/checkbox/CardCheckboxModal"))
+const IconTitleBtnListDemo = lazy(() => import("@/pages/base/list/IconTitleBtnList"))
 export default {
   path: "base/*",
   element: <Layout></Layout>,
@@ -206,6 +207,15 @@ export default {
         {
           path: "CardCheckboxModal",
           element: <CardCheckboxModal></CardCheckboxModal>,
+        },
+      ],
+    },
+    {
+      path: "list/*",
+      children: [
+        {
+          path: "IconTitleBtnList",
+          element: <IconTitleBtnListDemo></IconTitleBtnListDemo>,
         },
       ],
     },

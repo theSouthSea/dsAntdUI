@@ -1,6 +1,8 @@
-import type { AppDispatch, AppStore } from "@/store"
+import type { Dispatch } from "@reduxjs/toolkit"
 
-type ThunkAction<T = any> = (dispatch: AppDispatch, state: AppStore["getState"]) => Promise<T>
+import type { AppStore } from "@/store"
+
+type ThunkAction<T = any> = (dispatch: Dispatch, state: AppStore["getState"]) => Promise<T>
 
 export const createAsyncAction = <T = any, R = any>(cb: (arg: T) => ThunkAction<R>) => {
   return cb

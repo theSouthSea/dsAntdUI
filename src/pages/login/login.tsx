@@ -1,16 +1,19 @@
 import { Button, Input, message, Space } from "antd"
 import { useEffect } from "react"
+import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { fetchGetCode, fetchLogin } from "@/service/api"
+import { AppDispatch } from "@/store/index.ts"
+import { loginAsync } from "@/store/user.action.ts"
 import { LoginRequest } from "@/types/auth.ts"
-import { setToken } from "@/utils/auth"
 
 import RandomCode from "./identifyCodes.ts"
 import styles from "./login.module.less"
 import LoginBgAnimation from "./loginBgAnimation.ts"
 
 const Login = () => {
+  const dispatch = useDispatch<AppDispatch>()
   const navigateTo = useNavigate()
   const loginInfo: LoginRequest = {
     name: "",
@@ -36,6 +39,7 @@ const Login = () => {
   const userChange = (value: string, name: string) => {
     loginInfo[name] = value
   }
+
   const gotoLogin = async () => {
     let empty: string = ""
     Object.keys(loginInfo)
@@ -49,11 +53,20 @@ const Login = () => {
       return message.warning(empty)
     }
 
-    const { data, error } = await fetchLogin(loginInfo)
-    if (error) {
+    // const { data, error } = await fetchLogin(loginInfo)
+    // if (error) {
+    //   onRefresh()
+    // } else {
+    //   setToken(data.token)
+    //   window.onresize = null
+    //   navigateTo("/")
+    // }
+    console.log("loginInfo=", loginInfo)
+    const isSuccess = await dispatch(loginAsync(loginInfo))
+    console.log("loginAsync: ", isSuccess)
+    if (!isSuccess) {
       onRefresh()
     } else {
-      setToken(data.token)
       window.onresize = null
       navigateTo("/")
     }

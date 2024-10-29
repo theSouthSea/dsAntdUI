@@ -12,6 +12,8 @@ export default [
     url: "/api/login",
     method: "post",
     response: (data: PostParam<LoginRequest>): BackendServiceResult => {
+      const body = JSON.parse(data.body)
+      console.log("data.body=", data.body, body)
       if (data.body.code !== data.body.originCode) {
         return {
           code: 201,
@@ -24,6 +26,7 @@ export default [
         message: "ok",
         data: {
           token: 1234,
+          username: data.body.name,
         },
       }
     },
@@ -32,7 +35,9 @@ export default [
     url: "/api/logout",
     method: "post",
     response: (data: PostParam<{ token: string }>): BackendServiceResult => {
-      if (data.body.token !== undefined) {
+      console.log("data.body=", data.body)
+      const body = JSON.parse(data.body)
+      if (body.token !== undefined) {
         return {
           code: 200,
           message: "退出成功",

@@ -1,6 +1,7 @@
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons"
-import { Button, Dropdown, Tooltip } from "antd"
+import { Dropdown, Tooltip } from "antd"
 import { createElement } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import Avator from "@/assets/header/avator.jpeg"
@@ -15,11 +16,16 @@ import {
   useAppLocaleContext,
   useAppThemeContext,
 } from "@/config/AppConfigProvider"
-import { getToken, removeToken } from "@/utils/auth"
+import { AppDispatch, RootState } from "@/store"
+import { logoutAsync } from "@/store/user.action"
+import { getToken } from "@/utils/auth"
 
 import { Header as StyledHeader } from "./styled"
 
 const Header = () => {
+  const dispatch = useDispatch<AppDispatch>()
+  const logged = getToken()
+  // const logged = useSelector((state: RootState) => state.user.logged)
   const { updateTheme, updateLocale } = useAppAPIContext()
   const theme = useAppThemeContext()
   const locale = useAppLocaleContext()
@@ -36,11 +42,15 @@ const Header = () => {
   const toLogin = () => {
     navigate("/login")
   }
-  const logged = getToken()
-  const handleQuit = () => {
-    console.log("退出=")
-    removeToken()
-    navigate("/login")
+
+  const handleQuit = async () => {
+    // console.log("退出=")
+    // removeToken()
+    const isSuccess = await dispatch(logoutAsync())
+    console.log("logoutAsync-isSuccess=", isSuccess)
+    if (isSuccess) {
+      navigate("/login")
+    }
   }
   return (
     <>
