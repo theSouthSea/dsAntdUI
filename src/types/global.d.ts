@@ -23,3 +23,8 @@ interface IOption {
   label: string
   value: string
 }
+interface IResponse<T> {
+  code: number
+  message: string
+  data: T
+}

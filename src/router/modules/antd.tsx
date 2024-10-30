@@ -29,6 +29,13 @@ const DatePickerDayjs = lazy(() => import("@/pages/antd/form/DatePickerDayjs"))
 const ValidateOtherComp = lazy(() => import("@/pages/antd/form/ValidateOtherComp"))
 const CustomFieldValidate = lazy(() => import("@/pages/antd/form/CustomFieldValidate"))
 const LabelInValue = lazy(() => import("@/pages/antd/treeSelect/LabelInValue"))
+const BaseUpload = lazy(() => import("@/pages/antd/upload/BaseUpload"))
+const BeforeUpload = lazy(() => import("@/pages/antd/upload/BeforeUpload"))
+const HideInFileList = lazy(() => import("@/pages/antd/upload/HideInFileList"))
+const CustomPreview = lazy(() => import("@/pages/antd/upload/CustomPreview"))
+const CustomInteractiveIcon = lazy(() => import("@/pages/antd/upload/CustomInteractiveIcon"))
+const ImageCrop = lazy(() => import("@/pages/antd/upload/ImageCrop"))
+const MyUpload1 = lazy(() => import("@/pages/antd/upload/MyUpload1"))
 
 export default {
   path: "antd/*",
@@ -184,6 +191,39 @@ export default {
         {
           path: "LabelInValue",
           element: <LabelInValue></LabelInValue>,
+        },
+      ],
+    },
+    {
+      path: "upload/*",
+      children: [
+        {
+          path: "BaseUpload",
+          element: <BaseUpload></BaseUpload>,
+        },
+        {
+          path: "BeforeUpload",
+          element: <BeforeUpload></BeforeUpload>,
+        },
+        {
+          path: "HideInFileList",
+          element: <HideInFileList></HideInFileList>,
+        },
+        {
+          path: "CustomPreview",
+          element: <CustomPreview></CustomPreview>,
+        },
+        {
+          path: "CustomInteractiveIcon",
+          element: <CustomInteractiveIcon></CustomInteractiveIcon>,
+        },
+        {
+          path: "ImageCrop",
+          element: <ImageCrop></ImageCrop>,
+        },
+        {
+          path: "MyUpload1",
+          element: <MyUpload1></MyUpload1>,
         },
       ],
     },

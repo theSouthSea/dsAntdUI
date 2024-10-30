@@ -7,7 +7,7 @@ export function getFiles() {
   })
 }
 
-export function uploadFile(data: any) {
+export function uploadFile<T>(data: any): Promise<IResponse<T>> {
   return request({
     url: "/upload/file",
     data,
