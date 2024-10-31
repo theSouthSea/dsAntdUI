@@ -1,13 +1,12 @@
 import { PlusOutlined } from "@ant-design/icons"
-import { message, Modal, Upload, UploadFile } from "antd"
-import { RcFile, UploadChangeParam, UploadProps } from "antd/es/upload"
+import { GetProp, message, Modal, Upload, UploadFile } from "antd"
+import { UploadChangeParam, UploadProps } from "antd/es/upload"
 import axios from "axios"
 import { useState } from "react"
 
-import { uploadFile } from "@/services/upload"
-
 import UploadButton from "./UploadButton"
 
+type FileType = Parameters<GetProp<UploadProps, "beforeUpload">>[0]
 interface CustomUploadProps {
   value?: string[]
   onChange?: (value: string[]) => void
@@ -36,7 +35,6 @@ const CustomUpload = (props: CustomUploadProps) => {
   }
   const handleFileChange = (options: UploadChangeParam<UploadFile<any>>) => {
     const { file, fileList } = options
-    const { size: fileSize } = file
     console.log("handleFileChange-file=", file)
     console.log("handleFileChange-fileList=", fileList)
 
@@ -78,6 +76,7 @@ const CustomUpload = (props: CustomUploadProps) => {
           onSuccess?.(response.data.data)
         } else {
           console.log("上传失败:", response.data.message)
+          onError?.(new Error(response.data.message || "上传失败"))
         }
       })
       .catch((error) => {
@@ -99,17 +98,19 @@ const CustomUpload = (props: CustomUploadProps) => {
     //   })
   }
   const handleRemove = (file: UploadFile<any>) => {
-    const newFileList = fileList.filter((item) => {
-      if (item.status === "removed") {
-        return false
-      }
-      return true
-    })
-    setFileList(newFileList)
-    const newValue = newFileList.map((item) => {
-      return item.response?.url || item.url
-    })
-    onChange?.(newValue)
+    console.log("handleRemove-file=", file)
+    /* 下面的代码不需要,antd组件已经做了处理 */
+    // const newFileList = fileList.filter((item) => {
+    //   if (item.status === "removed") {
+    //     return false
+    //   }
+    //   return true
+    // })
+    // setFileList(newFileList)
+    // const newValue = newFileList.map((item) => {
+    //   return item.response?.url || item.url
+    // })
+    // onChange?.(newValue)
   }
   // 限制上传的文件类型和大小,否则不上传
   const beforeUpload = (file: FileType) => {
@@ -136,7 +137,7 @@ const CustomUpload = (props: CustomUploadProps) => {
         customRequest={customRequest}
         listType={listType}
         maxCount={maxCount}
-        onRemove={handleRemove}
+        // onRemove={handleRemove}
       >
         {isShowBtn ? (
           fileList.length < maxCount && <UploadButton listType={listType}></UploadButton>

@@ -36,6 +36,9 @@ const CustomPreview = lazy(() => import("@/pages/antd/upload/CustomPreview"))
 const CustomInteractiveIcon = lazy(() => import("@/pages/antd/upload/CustomInteractiveIcon"))
 const ImageCrop = lazy(() => import("@/pages/antd/upload/ImageCrop"))
 const MyUpload1 = lazy(() => import("@/pages/antd/upload/MyUpload1"))
+const CustomItemRender = lazy(() => import("@/pages/antd/upload/CustomItemRender"))
+const DestroyOnClose = lazy(() => import("@/pages/antd/modal/DestroyOnClose"))
+const ForceRender = lazy(() => import("@/pages/antd/modal/ForceRender"))
 
 export default {
   path: "antd/*",
@@ -224,6 +227,23 @@ export default {
         {
           path: "MyUpload1",
           element: <MyUpload1></MyUpload1>,
+        },
+        {
+          path: "CustomItemRender",
+          element: <CustomItemRender></CustomItemRender>,
+        },
+      ],
+    },
+    {
+      path: "modal/*",
+      children: [
+        {
+          path: "DestroyOnClose",
+          element: <DestroyOnClose></DestroyOnClose>,
+        },
+        {
+          path: "ForceRender",
+          element: <ForceRender></ForceRender>,
         },
       ],
     },

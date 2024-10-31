@@ -9,7 +9,7 @@ const useCount = () => {
     setCount(count - 1)
   }
   const doubleIncrement = () => {
-    setCount(count + 2)
+    setCount(count * 2)
   }
   return {
     count,
