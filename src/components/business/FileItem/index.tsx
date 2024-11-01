@@ -14,6 +14,7 @@ import styles from "./index.module.less"
 
 export interface FileInfo {
   name: string
+  originalText?: string
   status?: "uploading" | "done" | "error" | "removed"
   url: string
   uid: string

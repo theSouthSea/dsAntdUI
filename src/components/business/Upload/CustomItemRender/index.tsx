@@ -1,9 +1,12 @@
 import { InboxOutlined, PlusOutlined } from "@ant-design/icons"
 import FileItem, { FileInfo } from "@business/FileItem"
+import EditContentModal from "@business/modal/EditContentModal"
 import { GetProp, message, Modal, Upload, UploadFile } from "antd"
 import { UploadChangeParam, UploadProps } from "antd/es/upload"
 import axios from "axios"
 import { useMemo, useRef, useState } from "react"
+
+import to from "@/utils/asyncUtil"
 
 import PreviewContent from "../PreviewContent"
 // import { uploadFile } from "@/services/upload"
@@ -61,7 +64,7 @@ const CustomUpload = (props: CustomUploadProps) => {
     setPreviewFile(file)
     setOpen(true)
   }
-  const [uploadedFileIds, setUploadedFileIds] = useState<string[]>([])
+  // const [uploadedFileIds, setUploadedFileIds] = useState<string[]>([])
   const getVideoResultTimerRef = useRef<NodeJS.Timeout>()
   const getAudioVideoData = (streamId: string, uid: string) => {
     getVideoResultTimerRef.current = setTimeout(() => {
@@ -112,7 +115,7 @@ const CustomUpload = (props: CustomUploadProps) => {
       return file
     })
     setFileList(newFileList)
-    setUploadedFileIds(idList)
+    // setUploadedFileIds(idList)
     const newValue = newFileList.map((item) => {
       return item.response?.url || item.url
     })
@@ -203,8 +206,39 @@ const CustomUpload = (props: CustomUploadProps) => {
       UploadApiRef.current = documentUploadApi
     }
   }
+  const [openEditModal, setOpenEditModal] = useState(false)
+  const [editItem, setEditItem] = useState<FileInfo>({} as FileInfo)
   const handleEdit = (data: FileInfo) => {
     console.log("data=", data)
+    setOpenEditModal(true)
+    setEditItem(data)
+  }
+  const handleEditModalOk = async (value: string) => {
+    const requestFn = axios.put(`/api/uploadFileEdit/${editItem.id}`, {
+      id: editItem.id,
+      originalText: value,
+    })
+    const [err, res] = await to(requestFn)
+    if (!err) {
+      setFileList((fileList) => {
+        const newFileList = fileList.map((item) => {
+          if (item.id === editItem.id) {
+            return {
+              ...item,
+              originalText: value,
+            }
+          }
+          return item
+        })
+        return newFileList
+      })
+      setOpenEditModal(false)
+      return true
+    }
+    return false
+  }
+  const handleEditModalCancel = () => {
+    setOpenEditModal(false)
   }
   const handleDelete = (id: number | string) => {
     console.log("id=", id)
@@ -293,6 +327,12 @@ const CustomUpload = (props: CustomUploadProps) => {
       >
         <PreviewContent file={previewFile!}></PreviewContent>
       </Modal>
+      <EditContentModal
+        content={editItem.originalText || ""}
+        open={openEditModal}
+        onCancel={handleEditModalCancel}
+        onOk={handleEditModalOk}
+      ></EditContentModal>
     </>
   )
 }

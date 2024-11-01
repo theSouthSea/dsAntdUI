@@ -90,6 +90,22 @@ export default [
     },
   },
   {
+    url: /\/api\/uploadFileEdit\/\d+/,
+    type: "put",
+    response: (config) => {
+      console.log("response-config=", config)
+      // 不能传一个对象字面量,否则每次调用Mock.mock都算第一次执行,"|+1"没有效果
+      // 必须传入一个对象变量,每次调用Mock.mock都会考虑之前的执行次数,"|+1"返回的值才会每次都不一样
+      return Mock.mock({
+        status: 200,
+        message: "修改成功",
+        data: {
+          url: "@image(200x100, #894FC4, #FFF, Mock)",
+        },
+      })
+    },
+  },
+  {
     url: "/api/uploadFileType/doc",
     type: "post",
     response: (config) => {
@@ -97,6 +113,7 @@ export default [
       return Mock.mock({
         ...obj2,
         data: {
+          ...obj2.data,
           url: "http://localhost:5173/doc/web.pdf",
         },
       })

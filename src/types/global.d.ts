@@ -28,3 +28,24 @@ interface IResponse<T> {
   message: string
   data: T
 }
+type SemanticDOM =
+  | "header"
+  | "body"
+  | "footer"
+  | "extra"
+  | "title"
+  | "actions"
+  | "cover"
+  | "container"
+type SemanticDOMObj = Record<SemanticDOM, string>
+interface SemanticDOMRequired {
+  header: string
+  body: string
+  footer: string
+  extra: string
+  title: string
+  actions: string
+  cover: string
+  container: string
+}
+type SemanticDOMPartial = Partial<SemanticDOMRequired>
