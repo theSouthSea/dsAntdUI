@@ -9,14 +9,17 @@ import {
 } from "@dnd-kit/sortable"
 import { CSS } from "@dnd-kit/utilities"
 import type { UploadFile, UploadProps } from "antd"
-import { Button, Upload } from "antd"
+import { Button, message, Upload } from "antd"
 import React, { useState } from "react"
 
 interface DraggableUploadListItemProps {
   originNode: React.ReactElement<any, string | React.JSXElementConstructor<any>>
   file: UploadFile<any>
 }
-
+const DOCUMENT_MAX_SIZE = 1024 * 1024 * 10
+const VIDEO_MAX_SIZE = 1024 * 1024 * 500
+const AUDIO_MAX_SIZE = 1024 * 1024 * 100
+const IMAGE_MAX_SIZE = 1024 * 1024 * 2
 const DraggableUploadListItem = ({ originNode, file }: DraggableUploadListItemProps) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: file.uid,
@@ -93,6 +96,26 @@ const App: React.FC = () => {
   const onChange: UploadProps["onChange"] = ({ fileList: newFileList }) => {
     setFileList(newFileList)
   }
+  const beforeUpload = (file: UploadFile<any>) => {
+    const { size, type } = file as any
+    if (type?.indexOf("image") > -1) {
+      if (size > IMAGE_MAX_SIZE) {
+        message.error("图片大小不能超过2M")
+        return Upload.LIST_IGNORE
+      }
+    } else if (type?.indexOf("video") > -1) {
+      if (size > VIDEO_MAX_SIZE) {
+        message.error("视频大小不能超过500M")
+        return Upload.LIST_IGNORE
+      }
+    } else if (type?.indexOf("audio") > -1) {
+      if (size > AUDIO_MAX_SIZE) {
+        message.error("音频大小不能超过100M")
+        return Upload.LIST_IGNORE
+      }
+    }
+    return true
+  }
 
   return (
     <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
@@ -101,6 +124,7 @@ const App: React.FC = () => {
           action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
           fileList={fileList}
           onChange={onChange}
+          beforeUpload={beforeUpload}
           itemRender={(originNode, file) => (
             <DraggableUploadListItem originNode={originNode} file={file} />
           )}
