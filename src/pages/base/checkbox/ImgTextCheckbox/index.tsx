@@ -5,9 +5,12 @@ import {
   SmileOutlined,
   SyncOutlined,
 } from "@ant-design/icons"
+import Section from "@business/Section"
 
-import ImgTextCheckbox from "@/components/base/ImgTextCheckbox"
+import ImgTextCheckboxOpt from "@/components/base/ImgTextCheckbox"
+import ImgTextCheckbox from "@/components/base/ImgTextCheckbox/origin"
 
+import { examDirectionList } from "../data"
 import styles from "./index.module.less"
 
 const ImgTextCheckboxDemo = () => {
@@ -20,13 +23,13 @@ const ImgTextCheckboxDemo = () => {
         label="单选题"
         icon={<HomeOutlined></HomeOutlined>}
       ></ImgTextCheckbox>
-      <ImgTextCheckbox
-        id="manyAnswer"
+      <ImgTextCheckboxOpt
+        // id="manyAnswer"
         name="multipleChoice"
         value="manyAnswer"
         label="多选题"
         icon={<LoadingOutlined />}
-      ></ImgTextCheckbox>
+      ></ImgTextCheckboxOpt>
     </div>
   )
 }

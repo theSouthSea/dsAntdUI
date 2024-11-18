@@ -39,6 +39,11 @@ const MyUpload1 = lazy(() => import("@/pages/antd/upload/MyUpload1"))
 const CustomItemRender = lazy(() => import("@/pages/antd/upload/CustomItemRender"))
 const DestroyOnClose = lazy(() => import("@/pages/antd/modal/DestroyOnClose"))
 const ForceRender = lazy(() => import("@/pages/antd/modal/ForceRender"))
+const ForceRenderRef = lazy(() => import("@/pages/antd/modal/ForceRenderRef"))
+const StaticConfirm = lazy(() => import("@/pages/antd/modal/StaticConfirm"))
+const CustomModal = lazy(() => import("@/pages/antd/modal/CustomModal"))
+const StaticMethod = lazy(() => import("@/pages/antd/modal/StaticMethod"))
+const ValidateFail = lazy(() => import("@/pages/antd/form/ValidateFail"))
 
 export default {
   path: "antd/*",
@@ -186,6 +191,10 @@ export default {
           path: "CustomFieldValidate",
           element: <CustomFieldValidate></CustomFieldValidate>,
         },
+        {
+          path: "ValidateFail",
+          element: <ValidateFail></ValidateFail>,
+        },
       ],
     },
     {
@@ -244,6 +253,22 @@ export default {
         {
           path: "ForceRender",
           element: <ForceRender></ForceRender>,
+        },
+        {
+          path: "ForceRenderRef",
+          element: <ForceRenderRef></ForceRenderRef>,
+        },
+        {
+          path: "StaticMethod",
+          element: <StaticMethod></StaticMethod>,
+        },
+        {
+          path: "StaticConfirm",
+          element: <StaticConfirm></StaticConfirm>,
+        },
+        {
+          path: "CustomModal",
+          element: <CustomModal></CustomModal>,
         },
       ],
     },
