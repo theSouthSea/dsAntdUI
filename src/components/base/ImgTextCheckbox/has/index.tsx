@@ -3,10 +3,10 @@ import { ReactElement } from "react"
 import styles from "./index.module.less"
 
 interface ImgTextCheckboxProps {
-  name?: string
-  value: string | number
+  name: string
+  value: string
   checked?: boolean
-  label: string | number
+  label: string
   icon?: ReactElement
   className?: string
   type?: "checkbox" | "radio"
@@ -32,8 +32,10 @@ const ImgTextCheckbox = (props: ImgTextCheckboxProps) => {
   const checkboxContainerClass = className ? `${styles.imgTextBox} ${className}` : styles.imgTextBox
   return (
     <div className={checkboxContainerClass}>
-      <input type={type} name={name} value={value} checked={checked} onChange={handleChange} />
-      <label className={checked ? styles.checked : ""}>{labelEle}</label>
+      <label className={checked ? styles.checked : ""}>
+        <input type={type} name={name} value={value} checked={checked} onChange={handleChange} />
+        {labelEle}
+      </label>
     </div>
   )
 }
