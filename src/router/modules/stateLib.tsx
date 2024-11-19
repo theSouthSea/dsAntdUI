@@ -25,6 +25,7 @@ const SimpleMobx = lazy(() => import("@/pages/stateLib/mobx/SimpleMobx"))
 const MakeAutoObservable = lazy(() => import("@/pages/stateLib/mobx/StoreDemo/MakeAutoObservable"))
 const MobxTodos = lazy(() => import("@/pages/stateLib/mobx/MobxTodos"))
 const MobxTodosBeautify = lazy(() => import("@/pages/stateLib/mobx/MobxTodos/beautify"))
+const MobxChild = lazy(() => import("@/pages/stateLib/mobx/MobxChild"))
 const stateLibRoutes = {
   path: "stateLib/*",
   element: <Layout></Layout>,
@@ -75,6 +76,7 @@ const stateLibRoutes = {
         { path: "MakeAutoObservable", element: <MakeAutoObservable /> },
         { path: "MobxTodos", element: <MobxTodos /> },
         { path: "MobxTodosBeautify", element: <MobxTodosBeautify /> },
+        { path: "MobxChild", element: <MobxChild /> },
       ],
     },
   ],
