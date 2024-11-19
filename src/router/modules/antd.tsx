@@ -44,6 +44,7 @@ const StaticConfirm = lazy(() => import("@/pages/antd/modal/StaticConfirm"))
 const CustomModal = lazy(() => import("@/pages/antd/modal/CustomModal"))
 const StaticMethod = lazy(() => import("@/pages/antd/modal/StaticMethod"))
 const ValidateFail = lazy(() => import("@/pages/antd/form/ValidateFail"))
+const InputBase = lazy(() => import("@/pages/antd/input/BaseInput"))
 
 export default {
   path: "antd/*",
@@ -269,6 +270,15 @@ export default {
         {
           path: "CustomModal",
           element: <CustomModal></CustomModal>,
+        },
+      ],
+    },
+    {
+      path: "input/*",
+      children: [
+        {
+          path: "InputBase",
+          element: <InputBase></InputBase>,
         },
       ],
     },
