@@ -8,6 +8,7 @@ const ContentEditableBase = lazy(
 const ContentEditableAdvance = lazy(
   () => import("@/pages/reactLib/contenteditable/ContentEditableAdvance"),
 )
+const BaseUsage = lazy(() => import("@/pages/reactLib/wangEditor/BaseUsage"))
 
 export default {
   path: "reactLib/*",
@@ -19,6 +20,10 @@ export default {
         { path: "ContentEditableBase", element: <ContentEditableBase /> },
         { path: "ContentEditableAdvance", element: <ContentEditableAdvance /> },
       ],
+    },
+    {
+      path: "wangEditor/*",
+      children: [{ path: "BaseUsage", element: <BaseUsage /> }],
     },
   ],
 }

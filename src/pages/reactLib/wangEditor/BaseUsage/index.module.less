@@ -1,0 +1,13 @@
+.editorContainer {
+  height: 500px;
+  overflow-y: scroll;
+
+  :global(.w-e-text-container [data-slate-editor]) {
+    /* 富文本输入的空格会保留 */
+    white-space: pre-wrap;
+
+    /* 会导致空格不显示 */
+
+    /* white-space: wrap; */
+  }
+}
