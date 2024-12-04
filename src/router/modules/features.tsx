@@ -8,6 +8,7 @@ const ClassEditableComp = lazy(() => import("@/pages/features/contentEditable/Cl
 const CursorPosition = lazy(() => import("@/pages/features/contentEditable/CursorPosition"))
 const ViewBox = lazy(() => import("@/pages/features/svg/ViewBox"))
 const BindParams = lazy(() => import("@/pages/features/bind/BindParams"))
+const NewTestPaper = lazy(() => import("@/pages/features/NewTestPaper"))
 export default {
   path: "features/*",
   element: <Layout></Layout>,
@@ -54,6 +55,15 @@ export default {
         {
           path: "BindParams",
           element: <BindParams />,
+        },
+      ],
+    },
+    {
+      path: "newTestPaper/*",
+      children: [
+        {
+          path: ":courseId/:courseName",
+          element: <NewTestPaper />,
         },
       ],
     },

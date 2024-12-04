@@ -3,10 +3,17 @@
   overflow-y: scroll;
 
   :global(.w-e-text-container [data-slate-editor]) {
-    /* 富文本输入的空格会保留 */
+    /* 富文本输入的空格会保留,在<br\>,换行符处换行,根据盒子的需要换行 */
     white-space: pre-wrap;
 
-    /* 会导致空格不显示 */
+    /* break-spaces同pre-wrap,它还具有:
+    1,保留的空白总是占用空间;
+    2.每个保留的空白后都可以被截断;
+    3.这样保留空白会占用空间而不会被挂起,从而影响盒子的大小min-content,max-content */
+
+    /* white-space: break-spaces; */
+
+    /* 会导致空格不显示,没有wrap属性,同normal */
 
     /* white-space: wrap; */
   }

@@ -78,7 +78,7 @@ const contentStyle: React.CSSProperties = {
   lineHeight: "normal",
   color: "#666",
   // backgroundColor: "#108ee9",
-  backgroundColor: "#fff",
+  backgroundColor: "#f5f5f5",
   padding: 10,
 }
 

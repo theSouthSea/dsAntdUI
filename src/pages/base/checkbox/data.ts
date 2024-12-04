@@ -4,21 +4,21 @@ export const examDirectionList = [
     name: "examDirection",
     label: "定义理解",
     value: "define",
-    checked: false,
+    // checked: false,
   },
   {
     id: 2,
     name: "examDirection",
     label: "概念辨析",
     value: "discriminate",
-    checked: false,
+    // checked: false,
   },
   {
     id: 3,
     name: "examDirection",
     label: "场景应用",
     value: "application",
-    checked: false,
+    // checked: false,
   },
 ]
 export const questionFormList = [

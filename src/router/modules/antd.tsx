@@ -10,11 +10,13 @@ const DynamicSwitch = lazy(() => import("@/pages/antd/theme/DynamicSwitch"))
 const ThemeNested = lazy(() => import("@/pages/antd/theme/ThemeNested"))
 const UseToken = lazy(() => import("@/pages/antd/theme/UseToken"))
 const SliderMarks = lazy(() => import("@/pages/antd/slider/SliderMarks"))
+const SliderMarksDrag = lazy(() => import("@/pages/antd/slider/SliderMarksDrag"))
 const SliderValue = lazy(() => import("@/pages/antd/slider/SliderValue"))
 const SliderDynamicTheme = lazy(() => import("@/pages/antd/slider/SliderDynamicTheme"))
 const TabsCache = lazy(() => import("@/pages/antd/tabs/TabsCache"))
 const TabsSvgBug = lazy(() => import("@/pages/antd/tabs/TabsSvgBug"))
 const StepsCache = lazy(() => import("@/pages/antd/steps/StepsCache"))
+const StepsIcon = lazy(() => import("@/pages/antd/steps/StepsIcon"))
 const RequestLoading = lazy(() => import("@/pages/antd/spin/RequestLoading"))
 const GlobalLoading = lazy(() => import("@/pages/antd/spin/GlobalLoading"))
 const FullScreenSpin = lazy(() => import("@/pages/antd/spin/FullScreenSpin"))
@@ -98,6 +100,10 @@ export default {
           path: "SliderDynamicTheme",
           element: <SliderDynamicTheme></SliderDynamicTheme>,
         },
+        {
+          path: "SliderMarksDrag",
+          element: <SliderMarksDrag></SliderMarksDrag>,
+        },
       ],
     },
     {
@@ -119,6 +125,10 @@ export default {
         {
           path: "StepsCache",
           element: <StepsCache></StepsCache>,
+        },
+        {
+          path: "StepsIcon",
+          element: <StepsIcon></StepsIcon>,
         },
       ],
     },

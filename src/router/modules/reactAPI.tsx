@@ -7,6 +7,7 @@ const ArrayRef = lazy(() => import("@/pages/reactAPI/ref/ArrayRef"))
 const NoFlushSyncBug = lazy(() => import("@/pages/reactAPI/flushSync/NoFlushSyncBug"))
 const FlushSyncFix = lazy(() => import("@/pages/reactAPI/flushSync/FlushSyncFix"))
 const BaseCreatePortal = lazy(() => import("@/pages/reactAPI/createPortal/Base"))
+const UnmountRemoveStorage = lazy(() => import("@/pages/reactAPI/unmount/UnmountRemoveStorage"))
 const reactAPIRoutes = {
   path: "reactAPI/*",
   element: <Layout></Layout>,
@@ -26,6 +27,10 @@ const reactAPIRoutes = {
     {
       path: "createPortal/*",
       children: [{ path: "BaseCreatePortal", element: <BaseCreatePortal /> }],
+    },
+    {
+      path: "unmount/*",
+      children: [{ path: "UnmountRemoveStorage", element: <UnmountRemoveStorage /> }],
     },
   ],
 }
