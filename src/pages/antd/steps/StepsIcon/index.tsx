@@ -35,8 +35,6 @@ const App: React.FC = () => {
     setCurrent(current - 1)
   }
 
-  const items = steps.map((item) => ({ key: item.title, title: item.title }))
-
   const contentStyle: React.CSSProperties = {
     lineHeight: "260px",
     textAlign: "center",
@@ -49,7 +47,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Steps current={current} items={items} />
+      <Steps current={current} items={steps} />
       <div style={contentStyle}>{steps[current].content}</div>
       <div style={{ marginTop: 24 }}>
         {current < steps.length - 1 && (
