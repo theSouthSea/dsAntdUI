@@ -9,6 +9,7 @@ export interface CheckboxItem {
   icon?: React.ReactNode
   id?: string | number
   name?: string
+  disabled?: boolean
 }
 export interface CardCheckboxProps extends CheckboxItem {
   direction?: "horizontal" | "vertical"
@@ -24,6 +25,7 @@ const CardCheckbox = (props: CardCheckboxProps) => {
     checked,
     direction = "horizontal",
     defaultChecked = false,
+    disabled = false,
     onChange,
   } = props
   // const [isChcked, setIschecked] = useState(checked)
@@ -60,7 +62,7 @@ const CardCheckbox = (props: CardCheckboxProps) => {
   return (
     <div className={styles.cardBox}>
       <label className={`${styles[direction]} ${isChckedRef.current ? styles.checked : ""}`}>
-        <input type="checkbox" value={value} onChange={handleChange} />
+        <input type="checkbox" value={value} onChange={handleChange} disabled={disabled} />
         {icon && <div className={styles.iconBox}>{icon}</div>}
         <div className={styles.labelBox}>{label}</div>
       </label>

@@ -10,11 +10,21 @@ interface SectionProps {
   titleSize?: "small" | "middle" | "large"
   children?: ReactNode
   footerJsx?: ReactNode
+  style?: React.CSSProperties
 }
 const Section = (props: SectionProps) => {
-  const { title, icon, classNames, titleSize = "middle", children, rightJsx, footerJsx } = props
+  const {
+    title,
+    icon,
+    classNames,
+    titleSize = "middle",
+    children,
+    rightJsx,
+    footerJsx,
+    style,
+  } = props
   return (
-    <div className={`${styles.sectionContainer} ${classNames?.container || ""}`}>
+    <div className={`${styles.sectionContainer} ${classNames?.container || ""}`} style={style}>
       <div className={`${styles.titleBox} ${classNames?.title || ""}`}>
         <div className={`${styles.leftBox} ${styles["title-" + titleSize]}`}>
           {icon ? icon : null}
