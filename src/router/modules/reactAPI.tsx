@@ -8,6 +8,8 @@ const NoFlushSyncBug = lazy(() => import("@/pages/reactAPI/flushSync/NoFlushSync
 const FlushSyncFix = lazy(() => import("@/pages/reactAPI/flushSync/FlushSyncFix"))
 const BaseCreatePortal = lazy(() => import("@/pages/reactAPI/createPortal/Base"))
 const UnmountRemoveStorage = lazy(() => import("@/pages/reactAPI/unmount/UnmountRemoveStorage"))
+const DefaultMemo = lazy(() => import("@/pages/reactAPI/memo/DefaultMemo"))
+const MemoFunction = lazy(() => import("@/pages/reactAPI/memo/MemoFunction"))
 const reactAPIRoutes = {
   path: "reactAPI/*",
   element: <Layout></Layout>,
@@ -31,6 +33,13 @@ const reactAPIRoutes = {
     {
       path: "unmount/*",
       children: [{ path: "UnmountRemoveStorage", element: <UnmountRemoveStorage /> }],
+    },
+    {
+      path: "memo/*",
+      children: [
+        { path: "DefaultMemo", element: <DefaultMemo /> },
+        { path: "MemoFunction", element: <MemoFunction /> },
+      ],
     },
   ],
 }

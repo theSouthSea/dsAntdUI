@@ -13,6 +13,7 @@ const useCount = () => {
   }
   return {
     count,
+    setCount,
     increment,
     decrement,
     doubleIncrement,
