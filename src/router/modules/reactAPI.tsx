@@ -4,6 +4,7 @@ import Layout from "@/layout"
 
 const CloneElementBase = lazy(() => import("@/pages/reactAPI/cloneElement/Base"))
 const ArrayRef = lazy(() => import("@/pages/reactAPI/ref/ArrayRef"))
+const RefUpdate = lazy(() => import("@/pages/reactAPI/ref/RefUpdate"))
 const NoFlushSyncBug = lazy(() => import("@/pages/reactAPI/flushSync/NoFlushSyncBug"))
 const FlushSyncFix = lazy(() => import("@/pages/reactAPI/flushSync/FlushSyncFix"))
 const BaseCreatePortal = lazy(() => import("@/pages/reactAPI/createPortal/Base"))
@@ -25,7 +26,13 @@ const reactAPIRoutes = {
         { path: "FlushSyncFix", element: <FlushSyncFix /> },
       ],
     },
-    { path: "ref/*", children: [{ path: "ArrayRef", element: <ArrayRef /> }] },
+    {
+      path: "ref/*",
+      children: [
+        { path: "ArrayRef", element: <ArrayRef /> },
+        { path: "RefUpdate", element: <RefUpdate /> },
+      ],
+    },
     {
       path: "createPortal/*",
       children: [{ path: "BaseCreatePortal", element: <BaseCreatePortal /> }],
