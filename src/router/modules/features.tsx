@@ -9,6 +9,8 @@ const CursorPosition = lazy(() => import("@/pages/features/contentEditable/Curso
 const ViewBox = lazy(() => import("@/pages/features/svg/ViewBox"))
 const BindParams = lazy(() => import("@/pages/features/bind/BindParams"))
 const NewTestPaper = lazy(() => import("@/pages/features/NewTestPaper"))
+const EventClose = lazy(() => import("@/pages/features/modalClose/EventClose"))
+const OverlayClose = lazy(() => import("@/pages/features/modalClose/OverlayClose"))
 export default {
   path: "features/*",
   element: <Layout></Layout>,
@@ -64,6 +66,19 @@ export default {
         {
           path: ":courseId/:courseName",
           element: <NewTestPaper />,
+        },
+      ],
+    },
+    {
+      path: "modalClose/*",
+      children: [
+        {
+          path: "OverlayClose",
+          element: <OverlayClose />,
+        },
+        {
+          path: "EventClose",
+          element: <EventClose />,
         },
       ],
     },
