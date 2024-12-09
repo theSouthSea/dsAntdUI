@@ -30,6 +30,7 @@ const CustomFormField = lazy(() => import("@/pages/antd/form/CustomFormField"))
 const DatePickerDayjs = lazy(() => import("@/pages/antd/form/DatePickerDayjs"))
 const ValidateOtherComp = lazy(() => import("@/pages/antd/form/ValidateOtherComp"))
 const CustomFieldValidate = lazy(() => import("@/pages/antd/form/CustomFieldValidate"))
+const UseWatch = lazy(() => import("@/pages/antd/form/UseWatch"))
 const LabelInValue = lazy(() => import("@/pages/antd/treeSelect/LabelInValue"))
 const BaseUpload = lazy(() => import("@/pages/antd/upload/BaseUpload"))
 const BeforeUpload = lazy(() => import("@/pages/antd/upload/BeforeUpload"))
@@ -205,6 +206,10 @@ export default {
         {
           path: "ValidateFail",
           element: <ValidateFail></ValidateFail>,
+        },
+        {
+          path: "UseWatch",
+          element: <UseWatch></UseWatch>,
         },
       ],
     },

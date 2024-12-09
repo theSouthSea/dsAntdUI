@@ -11,6 +11,7 @@ const BaseCreatePortal = lazy(() => import("@/pages/reactAPI/createPortal/Base")
 const UnmountRemoveStorage = lazy(() => import("@/pages/reactAPI/unmount/UnmountRemoveStorage"))
 const DefaultMemo = lazy(() => import("@/pages/reactAPI/memo/DefaultMemo"))
 const MemoFunction = lazy(() => import("@/pages/reactAPI/memo/MemoFunction"))
+const LazyComp = lazy(() => import("@/pages/reactAPI/suspense/LazyComp"))
 const reactAPIRoutes = {
   path: "reactAPI/*",
   element: <Layout></Layout>,
@@ -47,6 +48,10 @@ const reactAPIRoutes = {
         { path: "DefaultMemo", element: <DefaultMemo /> },
         { path: "MemoFunction", element: <MemoFunction /> },
       ],
+    },
+    {
+      path: "suspense/*",
+      children: [{ path: "LazyComp", element: <LazyComp /> }],
     },
   ],
 }
