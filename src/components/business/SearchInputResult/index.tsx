@@ -30,11 +30,26 @@ const SearchInputResult = (props: SearchInputResultProps) => {
     setSearchText(value)
     valueRef.current = value
     // handleSearch(e)
+    if (!isComposingRef.current) {
+      handleSearch()
+    }
+  }, [])
+  const isComposingRef = useRef(false)
+  const handleCompositionStart = useCallback(() => {
+    isComposingRef.current = true
+  }, [])
+  const handleCompositionEnd = useCallback(() => {
+    isComposingRef.current = false
     handleSearch()
   }, [])
   return (
     <StyledSearchContainer>
-      <StyledSearchInput onChange={handleChange} value={searchText}></StyledSearchInput>
+      <StyledSearchInput
+        onChange={handleChange}
+        onCompositionStart={handleCompositionStart}
+        onCompositionEnd={handleCompositionEnd}
+        value={searchText}
+      ></StyledSearchInput>
       {result && !resultJsx ? (
         <StyledResults>
           {result.length > 0 ? (

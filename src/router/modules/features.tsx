@@ -11,6 +11,7 @@ const BindParams = lazy(() => import("@/pages/features/bind/BindParams"))
 const NewTestPaper = lazy(() => import("@/pages/features/NewTestPaper"))
 const EventClose = lazy(() => import("@/pages/features/modalClose/EventClose"))
 const OverlayClose = lazy(() => import("@/pages/features/modalClose/OverlayClose"))
+const ListenerChineseInput = lazy(() => import("@/pages/features/input/ListenerChineseInput"))
 export default {
   path: "features/*",
   element: <Layout></Layout>,
@@ -79,6 +80,15 @@ export default {
         {
           path: "EventClose",
           element: <EventClose />,
+        },
+      ],
+    },
+    {
+      path: "input/*",
+      children: [
+        {
+          path: "ListenerChineseInput",
+          element: <ListenerChineseInput />,
         },
       ],
     },
