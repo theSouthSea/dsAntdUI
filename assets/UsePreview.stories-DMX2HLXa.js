@@ -1,0 +1,5 @@
+import{r as p}from"./index-BwDkhjyp.js";import{a as s,j as c,F as h}from"./emotion-react-jsx-runtime.browser.esm-C4yDm8mC.js";import"./_commonjsHelpers-BosuxZz1.js";import"./jsx-runtime-Nms4Y4qS.js";import"./emotion-use-insertion-effect-with-fallbacks.browser.esm--wlgpIj0.js";const f=(r,t)=>{const e=p.useRef({value:r,prev:null}),n=e.current.value;return(t?!t(n,r):r!==n)&&(e.current={value:r,prev:n}),e.current.prev},v=({initCount:r})=>{const[t,e]=p.useState(r),n=f(t,(l,C)=>l===C),d=()=>{e(t+1)},m=()=>{e(t-1)};return s(h,{children:[s("div",{children:["前一个值: ",n]}),s("div",{children:["当前值:",t]}),c("button",{onClick:d,children:"+"}),c("button",{onClick:m,children:"-"})]})},P={title:"hooks/usePreview",component:v,argTypes:{initCount:{control:{type:"number"},defaultValue:0}},parameters:{controls:{expanded:!0}}},o={args:{initCount:0}};var i,a,u;o.parameters={...o.parameters,docs:{...(i=o.parameters)==null?void 0:i.docs,source:{originalSource:`{
+  args: {
+    initCount: 0
+  }
+}`,...(u=(a=o.parameters)==null?void 0:a.docs)==null?void 0:u.source}}};const y=["InitCount0"];export{o as InitCount0,y as __namedExportsOrder,P as default};

@@ -1,0 +1,1 @@
+function s(e){const t="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";let r="";for(let n=0;n<e;n++)r+=t[Math.floor(Math.random()*t.length)];return r}const a=(e=1e3)=>new Promise(t=>setTimeout(t,e));function o(e,t){if(e===t)return!0;for(const r in e)if(e[r]!==t[r])return!1;return!0}export{o as S,s as g,a as s};

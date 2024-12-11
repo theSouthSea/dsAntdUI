@@ -1,0 +1,5 @@
+import{u as p}from"./useRandomId-C6ju2e2x.js";import{r as a}from"./index-BwDkhjyp.js";import{j as e,a as s}from"./emotion-react-jsx-runtime.browser.esm-C4yDm8mC.js";import"./index-Ci5d_AUt.js";import"./_commonjsHelpers-BosuxZz1.js";import"./jsx-runtime-Nms4Y4qS.js";import"./emotion-use-insertion-effect-with-fallbacks.browser.esm--wlgpIj0.js";const u=({children:r})=>{const[o,m]=a.useState(1),[,l]=a.useState(1);return s("div",{children:[r,e("hr",{}),s("div",{children:[e("button",{onClick:()=>l(n=>n+1),children:"Rerender Hook"}),e("button",{onClick:()=>m(n=>n+1),children:"Remount Hook"})]})]},o)},h=({length:r})=>{const o=p(r);return e("pre",{children:s("code",{children:["id: ",o]})})},g=r=>e(u,{children:e(h,{...r})}),j={title:"hooks/useRandomId",component:g,argTypes:{length:{control:{type:"number"},defaultValue:10}},parameters:{controls:{expanded:!0}}},t={args:{length:8}};var c,d,i;t.parameters={...t.parameters,docs:{...(c=t.parameters)==null?void 0:c.docs,source:{originalSource:`{
+  args: {
+    length: 8
+  }
+}`,...(i=(d=t.parameters)==null?void 0:d.docs)==null?void 0:i.source}}};const S=["Length8"];export{t as Length8,S as __namedExportsOrder,j as default};
