@@ -1,4 +1,4 @@
-import { action, computed, observable } from "mobx"
+import { action, computed, observable, reaction } from "mobx"
 
 export type Todo = {
   id: number
@@ -38,7 +38,17 @@ class TodoStore {
 
   @action
   toggleComplete(todo) {
-    todo.completed = !todo.completed
+    // todo.completed = !todo.completed
+    this.todos = this.todos.map((item) => {
+      if (item === todo) {
+        return {
+          ...item,
+          completed: !item.completed,
+        }
+      } else {
+        return item
+      }
+    })
   }
 
   @action
@@ -67,6 +77,14 @@ class TodoStore {
     } else {
       return this.todos.filter((todo) => !todo.completed)
     }
+  }
+  constructor() {
+    reaction(
+      () => this.todos,
+      (todos) => {
+        console.log("reaction-todos,this.filteredTodos=", todos, this.filteredTodos)
+      },
+    )
   }
 }
 

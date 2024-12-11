@@ -25,6 +25,20 @@ const SimpleMobx = lazy(() => import("@/pages/stateLib/mobx/SimpleMobx"))
 const MakeAutoObservable = lazy(() => import("@/pages/stateLib/mobx/StoreDemo/MakeAutoObservable"))
 const MobxTodos = lazy(() => import("@/pages/stateLib/mobx/MobxTodos"))
 const MobxTodosBeautify = lazy(() => import("@/pages/stateLib/mobx/MobxTodos/beautify"))
+const MobxTodosSimple = lazy(() => import("@/pages/stateLib/mobx/MobxTodos/beautifySimple"))
+const MobxTodosOpt = lazy(() => import("@/pages/stateLib/mobx/MobxTodos/beautifySimpleOpt"))
+const MobxTodosOptMemo = lazy(() => import("@/pages/stateLib/mobx/MobxTodos/beautifySimpleOptMemo"))
+const MobxTimer = lazy(() => import("@/pages/stateLib/mobx/demo/Timer"))
+const MobxContext = lazy(() => import("@/pages/stateLib/mobx/demo/MobxContext"))
+const LocalStore = lazy(() => import("@/pages/stateLib/mobx/demo/LocalStore"))
+const Observable = lazy(() => import("@/pages/stateLib/mobx/demo/Observable"))
+const UseLocalObservable = lazy(() => import("@/pages/stateLib/mobx/demo/UseLocalObservable"))
+const ErrorDemo1 = lazy(() => import("@/pages/stateLib/mobx/demo/ErrorDemo1"))
+const PassObservableObj = lazy(() => import("@/pages/stateLib/mobx/demo/PassObservableObj"))
+const OnRenderComp = lazy(() => import("@/pages/stateLib/mobx/demo/OnRenderComp"))
+const CompName = lazy(() => import("@/pages/stateLib/mobx/demo/CompName"))
+const HOCMobx = lazy(() => import("@/pages/stateLib/mobx/demo/HOCMobx"))
+
 const MobxChild = lazy(() => import("@/pages/stateLib/mobx/MobxChild"))
 const PageNotUpdate = lazy(() => import("@/pages/stateLib/mobx/PageNotUpdate"))
 const PageNotUpdateFix = lazy(() => import("@/pages/stateLib/mobx/PageNotUpdateFix"))
@@ -69,6 +83,16 @@ const stateLibRoutes = {
     {
       path: "mobx/*",
       children: [
+        { path: "MobxTimer", element: <MobxTimer /> },
+        { path: "MobxContext", element: <MobxContext /> },
+        { path: "LocalStore", element: <LocalStore /> },
+        { path: "Observable", element: <Observable /> },
+        { path: "UseLocalObservable", element: <UseLocalObservable /> },
+        { path: "ErrorDemo1", element: <ErrorDemo1 /> },
+        { path: "PassObservableObj", element: <PassObservableObj /> },
+        { path: "OnRenderComp", element: <OnRenderComp /> },
+        { path: "CompName", element: <CompName /> },
+        { path: "HOCMobx", element: <HOCMobx /> },
         { path: "MobxDemo", element: <MobxDemo /> },
         { path: "LiteDemo", element: <LiteDemo /> },
         { path: "MobxReactDemo", element: <MobxReactDemo /> },
@@ -78,6 +102,9 @@ const stateLibRoutes = {
         { path: "MakeAutoObservable", element: <MakeAutoObservable /> },
         { path: "MobxTodos", element: <MobxTodos /> },
         { path: "MobxTodosBeautify", element: <MobxTodosBeautify /> },
+        { path: "MobxTodosSimple", element: <MobxTodosSimple /> },
+        { path: "MobxTodosOpt", element: <MobxTodosOpt /> },
+        { path: "MobxTodosOptMemo", element: <MobxTodosOptMemo /> },
         { path: "MobxChild", element: <MobxChild /> },
         { path: "PageNotUpdate", element: <PageNotUpdate /> },
         { path: "PageNotUpdateFix", element: <PageNotUpdateFix /> },
