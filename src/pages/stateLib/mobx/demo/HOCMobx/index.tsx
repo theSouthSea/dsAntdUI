@@ -10,6 +10,7 @@ const HOCMobx = () => {
   useEffect(() => {
     todosStore.fetchTodos()
   }, [])
+  console.log("HOCMobx-todosStore.todos=", todosStore.todos)
   return (
     <>
       <div>HOCMobx</div>
