@@ -1,7 +1,7 @@
 import Section from "@business/Section"
 import { Button, Input, Space } from "antd"
 import { observer } from "mobx-react-lite"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 import todosStore from "../todosStore"
 import DataDisplay from "./DataDisplay"
@@ -20,10 +20,17 @@ const HOCMobx = () => {
     todosStore.addTodo(value)
     setValue("")
   }
+  const handleSelect = (todo: any) => {
+    // todosStore.toggleTodo(todo)
+  }
+  // const handleSelect = useCallback((todo: any) => {
+  //   // todosStore.toggleTodo(todo)
+
+  // },[])
   return (
     <>
       <div>HOCMobx</div>
-      <DataDisplay data={todosStore.todos}></DataDisplay>
+      <DataDisplay data={todosStore.todos} onSelect={handleSelect}></DataDisplay>
       <Section title="全部待办事项">
         <Space.Compact style={{ width: "100%" }}>
           <Input value={value} onChange={handleChange}></Input>

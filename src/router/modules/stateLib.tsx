@@ -38,6 +38,7 @@ const PassObservableObj = lazy(() => import("@/pages/stateLib/mobx/demo/PassObse
 const OnRenderComp = lazy(() => import("@/pages/stateLib/mobx/demo/OnRenderComp"))
 const CompName = lazy(() => import("@/pages/stateLib/mobx/demo/CompName"))
 const HOCMobx = lazy(() => import("@/pages/stateLib/mobx/demo/HOCMobx"))
+const HOCMobx2 = lazy(() => import("@/pages/stateLib/mobx/demo/HOCMobx2"))
 
 const MobxChild = lazy(() => import("@/pages/stateLib/mobx/MobxChild"))
 const PageNotUpdate = lazy(() => import("@/pages/stateLib/mobx/PageNotUpdate"))
@@ -93,6 +94,7 @@ const stateLibRoutes = {
         { path: "OnRenderComp", element: <OnRenderComp /> },
         { path: "CompName", element: <CompName /> },
         { path: "HOCMobx", element: <HOCMobx /> },
+        { path: "HOCMobx2", element: <HOCMobx2 /> },
         { path: "MobxDemo", element: <MobxDemo /> },
         { path: "LiteDemo", element: <LiteDemo /> },
         { path: "MobxReactDemo", element: <MobxReactDemo /> },
