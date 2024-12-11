@@ -36,8 +36,8 @@ const withData = (WrappedComponent) => {
     return <WrappedComponent {...rest} data={data} value={value} onChange={handleChange} />
   }
 
-  return DataFetcher
-  // return observer(DataFetcher)
+  // return DataFetcher
+  return observer(DataFetcher)
 }
 
 export default withData
