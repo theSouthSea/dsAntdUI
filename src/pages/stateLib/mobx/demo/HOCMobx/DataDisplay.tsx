@@ -7,15 +7,18 @@ import withData from "./withData"
 const DataDisplay = ({ data, value: propValue, onChange }) => {
   const [value, setValue] = useState(propValue)
   // const debounceChangeRef = useRef(debounce(onChange, 500))
-  const debounceCallback = useCallback(debounce(onChange, 500), [])
+  const debounceCallback = useCallback(debounce(onChange, 500), [onChange])
   useEffect(() => {
     setValue(propValue)
   }, [propValue])
-  const handleChange = useCallback((e) => {
-    setValue(e.target.value)
-    // debounceChangeRef.current(e)
-    debounceCallback(e)
-  }, [])
+  const handleChange = useCallback(
+    (e) => {
+      setValue(e.target.value)
+      // debounceChangeRef.current(e)
+      debounceCallback(e)
+    },
+    [debounceCallback],
+  )
 
   if (!data) {
     return <div>Loading...</div>
